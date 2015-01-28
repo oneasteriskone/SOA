@@ -5,7 +5,7 @@
 
 #define BUFFER_SIZE 150
 #define BUFFER_ROW_SIZE 50
-#define BUFFER_FILE "/tmp/soa_buffer.bin"
+#define BUFFER_FILE "/soa_buffer"
 #define BUFFER_FILE_SIZE BUFFER_ROW_SIZE * BUFFER_SIZE * sizeof(char)
 
 #define BUFFER_SEM_KEY 0xA61531

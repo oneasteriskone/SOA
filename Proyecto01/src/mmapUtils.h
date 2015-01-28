@@ -8,10 +8,12 @@
 #include <sys/types.h>
 #include <sys/mman.h>
 #include <fcntl.h>
+#include <sys/stat.h>
 
 void* createMmap(char* path, int size)
 {
-  int handler = open(path, O_RDWR | O_CREAT | O_TRUNC, 0777);
+  //int handler = open(path, O_RDWR | O_CREAT | O_TRUNC, 0777);
+  int handler = shm_open(path, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
   if(handler < 0)
     err(EXIT_FAILURE, "Error creating handler for the file=[%s].", path);
   int result = ftruncate(handler, size);
@@ -29,7 +31,8 @@ void* createMmap(char* path, int size)
 
 void* getMmap(char* path, int size)
 {
-  int handler = open(path, O_RDWR, 0777);
+  //int handler = open(path, O_RDWR, 0777);
+  int handler = shm_open(path, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
   if(handler < 0)
     err(EXIT_FAILURE, "Error creating handler for the file=[%s]. Has the creador run?", path);
   void* address = (void*) mmap(0, size, PROT_READ | PROT_WRITE, MAP_SHARED, handler, 0);

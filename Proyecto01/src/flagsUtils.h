@@ -10,7 +10,7 @@
 #define BUFFER_WRITE_INDEX 6
 #define BUFFER_READ_INDEX 7
 #define FLAG_COUNTER 8
-#define FLAGS_FILE "/tmp/soa_flags.bin"
+#define FLAGS_FILE "/soa_flags"
 #define FLAGS_FILE_SIZE FLAG_COUNTER * sizeof(int)
 
 #define FLAGS_SEM_KEY 0XA61532

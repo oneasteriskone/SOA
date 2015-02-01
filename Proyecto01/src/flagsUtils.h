@@ -1,11 +1,11 @@
 #ifndef FLAG_UTILS
 #define FLAG_UTILS
-
 #define KILLEM_AL_INDEX 0
 #define PRODUCERS_INDEX 1
-#define PRODUCERS_COUNT 2
+//#define PRODUCERS_COUNT 2
 #define CONSUMERS_INDEX 3
-#define CONSUMERS_COUNT 4
+//#define CONSUMERS_COUNT 4
+#include "creadorVariables.h"
 #define CURRENT_INDEX 5
 #define BUFFER_WRITE_INDEX 6
 #define BUFFER_READ_INDEX 7
@@ -14,7 +14,7 @@
 #define FLAGS_FILE_SIZE FLAG_COUNTER * sizeof(int)
 
 #define FLAGS_SEM_KEY 0XA61532
-
+ 
 struct Flags
 {
   int* address;

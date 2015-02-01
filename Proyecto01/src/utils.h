@@ -2,14 +2,22 @@
 #define MISC_UTILS
 
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
 
-#define MEDIA 0.05
-
-int exponentialRand(double lambda)
+float genRand()
 {
-  double x = (double)rand();
-  double value = 1.0 - exp(-1 * lambda * x);
-  return (int)value;
+  return( (float) rand()/RAND_MAX );
+}
+
+
+int exponentialRand(float lambda)
+{
+  float u,x;
+  u=genRand();
+  x=(-1/lambda)*log(u);
+  return x;
+
 }
 
 #endif

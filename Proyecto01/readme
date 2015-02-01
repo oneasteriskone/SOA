@@ -1,0 +1,13 @@
+Proyecto 01 - Memoria compartida: Productor y Consumidor
+Integrantes:
+Luis Diego Chavarria Ledezma
+David Sanchez Alban
+Natalia Marin Perez
+
+Para poder compilar el programa se debe utilizar el archivo de makefile:
+make -f makefile
+
+El programa de creador recibira los parametros:
+./creador <Buffer_size> <Numero de productores> <Numero de consumidores>
+Por ejemplo:
+./creador 100 4 2

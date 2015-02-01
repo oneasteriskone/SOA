@@ -40,7 +40,8 @@ int main(int argc, char* argv[])
     float media=atof(argv[2]);
     struct Flags* flags = getFlags();
     struct Buffer* buffer = getBuffer();
-
+    char* name=argv[1];
+    int timeAcum=0;
     int id = increaseProductor(flags);
     printf("ID=[%d]\n", id);
     char* message;
@@ -49,6 +50,7 @@ int main(int argc, char* argv[])
     while(0 == isFinished(flags)){
       if(getFinalFlag() == 1){
         finishProductor(flags);
+        printf("\nEstadisticas de productor id: %d\n**********************************\nNombre de buffer: %s\nTiempo Consumido: %d\nNumero de mensajes producidos: %d\n**********************************\n",id,name,timeAcum,i);
         break;
       }
       message = buildMessage(id);
@@ -57,7 +59,9 @@ int main(int argc, char* argv[])
       free(message);
       int timeSleep = exponentialRand(media);
       sleep(timeSleep);
-
+      timeAcum+=timeSleep;
+      if(index != -1)
+          i++;
       // if(i++ == 10)
       //     break;
     }

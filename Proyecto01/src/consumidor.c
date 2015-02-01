@@ -28,6 +28,8 @@ int main(int argc, char* argv[])
       int id = increaseConsumidor(flags);
 
       printf("ID=[%d]\n", id);
+     char* name=argv[1];
+     int timeAcum=0;
 
       char* message;
       int index;
@@ -35,6 +37,7 @@ int main(int argc, char* argv[])
       while(0 == isFinished(flags)){
         if(getFinalFlag() == 1){
           finishConsumidor(flags);
+            printf("\nEstadisticas de consumidor id: %d\n*********************************\nNombre de buffer: %s\nTiempo Consumido: %d segundos\nNumero de mensajes consumidos: %d\n**********************************\n",id,name,timeAcum,i);
           break;
         }
 
@@ -49,7 +52,9 @@ int main(int argc, char* argv[])
         int timeSleep = exponentialRand(media);
         printf("timesleep: %d ",timeSleep);
         sleep(timeSleep*2);
-
+	timeAcum+=timeSleep;
+         if(index != 1)
+            i++;
         // if(i++ == 5)
         //   break;
       }

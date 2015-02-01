@@ -7,12 +7,14 @@
 #include "semsUtils.h"
 #include "flagsUtils.h"
 #include "bufferUtils.h"
+#include "finalizadorUtils.h"
 
 int main(int argc, char* argv[])
 {
   //int semId = createSemaphore();
   createFlags();
   createBuffer();
+  createFinalFlag();
     
   return 0;
 }

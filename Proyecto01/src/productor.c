@@ -8,6 +8,7 @@
 #include "flagsUtils.h"
 #include "bufferUtils.h"
 #include "productorUtils.h"
+#include "finalizadorUtils.h"
 
 void finishProductor(struct Flags* flags)
 {
@@ -32,6 +33,8 @@ int main(int argc, char* argv[])
 {
   struct Flags* flags = getFlags();
   struct Buffer* buffer = getBuffer();
+  int finalFlag = getFinalFlag(); // The productor is not finding the memory address, tried memcpy w/o success.
+
 
   int id = increaseProductor(flags);
   printf("ID=[%d]\n", id);
@@ -40,6 +43,9 @@ int main(int argc, char* argv[])
   int i = 0;
   while(0 == isFinished(flags))
   {
+    printf("Final flag: %d\n", getFinalFlag());
+
+
     message = buildMessage(id);
     index = writeMessage(buffer, flags, message);
     printf("Wrote in index=[%d] the message=[%s]\n", index, message);

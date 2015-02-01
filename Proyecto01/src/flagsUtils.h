@@ -14,6 +14,7 @@
 #define FLAGS_FILE_SIZE FLAG_COUNTER * sizeof(int)
 
 #define FLAGS_SEM_KEY 0XA61532
+#define FLAGS_SEM_FIN 0XA61533
 
 struct Flags
 {
@@ -21,12 +22,16 @@ struct Flags
   int semId;
 };
 
+int FinalFlag = 0;
+
 void createFlags()
 {
   int* flags = (int*) createMmap(FLAGS_FILE, FLAGS_FILE_SIZE);
   for (int i = 0 ; i < FLAG_COUNTER ; i++)
     flags[i] = 0;
   
+  createMmap("soa_final", 0XA61533);
+
   int semId = createSemaphore(FLAGS_SEM_KEY);
 }
 
@@ -38,8 +43,15 @@ struct Flags* getFlags()
   return flags;
 }
 
+int finalSemaphone(){
+  return getSemaphore(FLAGS_SEM_FIN);
+}
+
 int isFinished(struct Flags* flags)
 {
+  printf("%d\n", FinalFlag);
+  if( FinalFlag == 1)
+    return 0;
   int isFinish;
   waitSemaphore(flags->semId);
   isFinish = flags->address[KILLEM_AL_INDEX];
@@ -61,6 +73,10 @@ void decreaseSubject(struct Flags* flags, const int counter)
   waitSemaphore(flags->semId);
   flags->address[counter]--;
   signalSemaphore(flags->semId);
+}
+
+void raiseEndFlag(){
+  FinalFlag = 1;
 }
 
 #endif

@@ -18,7 +18,7 @@ int getBufferWriteIndex(struct Flags* flags)
 {
   return flags->address[BUFFER_WRITE_INDEX];
 }
-
+ 
 void increaseBufferWriteIndex(struct Flags* flags, const int bufferSize)
 {
   flags->address[BUFFER_WRITE_INDEX] = (flags->address[BUFFER_WRITE_INDEX] + 1) % bufferSize;

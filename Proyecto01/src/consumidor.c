@@ -9,6 +9,7 @@
 #include "flagsUtils.h"
 #include "bufferUtils.h"
 #include "consumidorUtils.h"
+#include "finalizadorUtils.h" // Adding it here, however we will have to remove it...
 
 void finishConsumidor(struct Flags* flags)
 {
@@ -38,8 +39,8 @@ int main(int argc, char* argv[])
     int timeSleep = exponentialRand(MEDIA);
     sleep(timeSleep*2);
 
-    if(i++ == 5)
-      break;
+    // if(i++ == 5)
+    //   break;
   }
   finishConsumidor(flags);
   return 0;

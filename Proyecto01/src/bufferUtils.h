@@ -41,6 +41,7 @@ struct Buffer* getBuffer()
 
 void destroyBuffer()
 {
+  memset(getBuffer(), '\0', BUFFER_FILE_SIZE);
 }
 
 const int getBufferRowSize()

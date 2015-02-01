@@ -12,6 +12,7 @@
 
 void main(){
 	raiseFinalFlag();
+	destroyBuffer();
 	printf("Terminando los procesos de consumidor y procesos de productor...\n");
 }
 

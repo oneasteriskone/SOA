@@ -9,7 +9,7 @@
 #include "flagsUtils.h"
 #include "bufferUtils.h"
 #include "consumidorUtils.h"
-#include "finalizadorUtils.h" // Adding it here, however we will have to remove it...
+#include "finalizadorUtils.h" 
 
 void finishConsumidor(struct Flags* flags)
 {
@@ -28,11 +28,17 @@ int main(int argc, char* argv[])
   int i = 0;
   while(0 == isFinished(flags))
   {
+
+    printf("Final flag: %d\n", getFinalFlag());
+    if(getFinalFlag() == 1){
+      finishConsumidor(flags);
+      break;
+    }
+
     index = readMessage(buffer, flags, &message);
-    if(0 > index)
-      printf("No message to consume yet on the buffer\n");
-    else
-    {
+    if(0 > index){
+        printf("No message to consume yet on the buffer\n");
+    }else{
       printf("Consumidor id=[%d] index=[%d], message=[%s]\n", id, index, message);
       free(message);
     }

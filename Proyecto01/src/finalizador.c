@@ -11,7 +11,7 @@
 #include "finalizadorUtils.h"
 
 void main(){
-	raiseEndFlag();
-	printf("Terminando los N procesos de consumidor y N procesos de productor...");
+	raiseFinalFlag();
+	printf("Terminando los procesos de consumidor y procesos de productor...\n");
 }
 

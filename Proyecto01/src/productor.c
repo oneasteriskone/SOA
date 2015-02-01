@@ -44,7 +44,10 @@ int main(int argc, char* argv[])
   while(0 == isFinished(flags))
   {
     printf("Final flag: %d\n", getFinalFlag());
-
+    if(getFinalFlag() == 1){
+      finishProductor(flags);
+      break;
+    }
 
     message = buildMessage(id);
     index = writeMessage(buffer, flags, message);

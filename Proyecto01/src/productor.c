@@ -30,35 +30,39 @@ char* buildMessage(int id)
 }
 
 int main(int argc, char* argv[])
-{
-  struct Flags* flags = getFlags();
-  struct Buffer* buffer = getBuffer();
-  int finalFlag = getFinalFlag(); // The productor is not finding the memory address, tried memcpy w/o success.
-
-
-  int id = increaseProductor(flags);
-  printf("ID=[%d]\n", id);
-  char* message;
-  int index;
-  int i = 0;
-  while(0 == isFinished(flags))
+{  
+  if ( argc != 3 )
   {
-    printf("Final flag: %d\n", getFinalFlag());
-    if(getFinalFlag() == 1){
-      finishProductor(flags);
-      break;
-    }
-
-    message = buildMessage(id);
-    index = writeMessage(buffer, flags, message);
-    printf("Wrote in index=[%d] the message=[%s]\n", index, message);
-    free(message);
-    int timeSleep = exponentialRand(MEDIA);
-    sleep(timeSleep);
-
-    if(i++ == 10)
-      break;
+    printf( "usage: %s <NOMBRE_BUFFER> <MEDIA_SEGUNDOS>\n", argv[0] );
   }
-  finishProductor(flags);
+  else
+  {
+    float media=atof(argv[2]);
+    struct Flags* flags = getFlags();
+    struct Buffer* buffer = getBuffer();
+
+    int id = increaseProductor(flags);
+    printf("ID=[%d]\n", id);
+    char* message;
+    int index;
+    int i = 0;
+    while(0 == isFinished(flags)){
+      if(getFinalFlag() == 1){
+        finishProductor(flags);
+        break;
+      }
+      message = buildMessage(id);
+      index = writeMessage(buffer, flags, message);
+      printf("Wrote in index=[%d] the message=[%s]\n", index, message);
+      free(message);
+      int timeSleep = exponentialRand(media);
+      sleep(timeSleep);
+
+      // if(i++ == 10)
+      //     break;
+    }
+    finishProductor(flags);
+  }
+
   return 0;
 }

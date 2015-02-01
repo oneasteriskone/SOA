@@ -1,9 +1,8 @@
 #ifndef BUFFER_UTILS
 #define BUFFER_UTILS
-
 #include <string.h>
-
-#define BUFFER_SIZE 150
+#include "creadorVariables.h"
+//#define BUFFER_SIZE 150
 #define BUFFER_ROW_SIZE 50
 #define BUFFER_FILE "/soa_buffer"
 #define BUFFER_FILE_SIZE BUFFER_ROW_SIZE * BUFFER_SIZE * sizeof(char)

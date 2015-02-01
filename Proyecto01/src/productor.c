@@ -50,7 +50,7 @@ int main(int argc, char* argv[])
     while(0 == isFinished(flags)){
       if(getFinalFlag() == 1){
         finishProductor(flags);
-        printf("\nEstadisticas de productor id: %d\n**********************************\nNombre de buffer: %s\nTiempo Consumido: %d\nNumero de mensajes producidos: %d\n**********************************\n",id,name,timeAcum,i);
+        printf("\nEstadisticas de productor id: %d\n**********************************\nNombre de buffer: %s\nTiempo Consumido: %d segundos\nNumero de mensajes producidos: %d\n**********************************\n",id,name,timeAcum,i);
         break;
       }
       message = buildMessage(id);

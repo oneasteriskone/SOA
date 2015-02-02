@@ -11,3 +11,13 @@ El programa de creador recibira los parametros:
 ./creador <Buffer_size> <Numero de productores> <Numero de consumidores>
 Por ejemplo:
 ./creador 100 4 2
+
+Luego se corre el productor y el consumidor que reciben como parametros el nombre del buffer y la media de segundos para la distribucion exponencial
+Por ejemplo:
+./consumidor soa_buffer 0.05
+./productor soa_buffer 0.8
+
+Cuando se quiere terminar los procesos se debe correr el finalizador sin argumentos:
+Por ejemplo:
+./finalizador
+Una vez finalizado el consumidor y el productor desplegaran las estadisticas.

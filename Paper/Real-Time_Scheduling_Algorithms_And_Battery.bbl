@@ -28,6 +28,14 @@ A.~Turing, ``Computing machinery and intelligence,'' \emph{Mind}, 1950.
   \url{http://www.csee.umbc.edu/courses/471/papers/turing.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{PADM01}
+\BIBentryALTinterwordspacing
+P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
+  embedded operating systems,'' \emph{ACM symposium on Operating systems
+  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=502044}
+\BIBentrySTDinterwordspacing
+
 \bibitem{CHO01}
 \BIBentryALTinterwordspacing
 M.-H. Cho, J.-S. Lim, and C.-H. Lee, ``ertos : The low-power real-time
@@ -43,14 +51,6 @@ L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
   \emph{Integrated Circuits and Systems Design}, pp. 169 -- 174, September
   2004. [Online]. Available:
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1360564}
-\BIBentrySTDinterwordspacing
-
-\bibitem{PADM01}
-\BIBentryALTinterwordspacing
-P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
-  embedded operating systems,'' \emph{ACM symposium on Operating systems
-  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=502044}
 \BIBentrySTDinterwordspacing
 
 \bibitem{SIND01}

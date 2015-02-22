@@ -1,0 +1,45 @@
+\batchmode
+\usepackage{natbib}
+\documentclass[conference]{IEEEtran}
+\begin{document} 
+
+\title{Real-Time Scheduling algorithms and battery consumption for mobile devices}
+
+
+% author names and affiliations
+
+\author{\IEEEauthorblockN{David S\'anchez Alb\'an}
+\IEEEauthorblockA{Ingenier\'ia en Computaci\'on\\
+Instituto Tecnol\'ogico de Costa Rica\\
+San Jose, Costa Rica}
+\and
+\IEEEauthorblockN{Natalia Mar\'in P\'erez}
+\IEEEauthorblockA{Ingenier\'ia en Computaci\'on\\
+Instituto Tecnol\'ogico de Costa Rica\\
+San Jose, Costa Rica}
+\and
+\IEEEauthorblockN{Luis Diego Chavarr\'ia Ledezma}
+\IEEEauthorblockA{Ingenier\'ia en Computaci\'on\\
+Instituto Tecnol\'ogico de Costa Rica\\
+San Jose, Costa Rica}
+}
+
+
+% make the title area
+\maketitle
+
+
+\begin{abstract}
+%\boldmath
+With the explosive growth of the mobile devices in the last years, the life of the battery is more important than ever. It has become so important in mobile devices that it is now a challenge for the manufacturers since it is a prominent feature on the market. Besides the improvements on hardware, it has evolved at the software level to even be included as another of the main assets that the OS has to manage along with the CPU, memory, IO and information storage. \citep[][]{TURING01}\\
+In this paper we explore different algorithms for real time scheduling and how they can impact, in a good or a bad way, the energy consumption and the battery’s life.\\
+The University of Michigan created a paper on Real-Time Dynamic Voltage Scaling \citep[][]{PADM01} for embedded operating systems that takes care of applying algorithms capable of modifying the OS's real-time scheduler and task management service by doing so this helps to save energy greatly. There have been also a great advancement in the Real Time Scheduling algorithms, the Zhejiang University \citep[][]{CHO01} developed an algorithm which improves the efficiency of the embedded systems and also the Federal do Rio Grande University tuned the CPU configuration \citep[][]{BECKER01} in a way that it could consume less power without missing any deadline. We will be investigating new algorithms by analyzing the data obtained with the Trepn Plug-in for Eclipse which helps to get data about how a mobile app uses CPU, network and hardware resources.
+\end{abstract}
+
+\nocite{*}
+%\citep{*}
+\bibliographystyle{IEEEtran}
+\bibliography{Real-Time_Scheduling_Algorithms_And_Battery}
+
+
+\end{document}

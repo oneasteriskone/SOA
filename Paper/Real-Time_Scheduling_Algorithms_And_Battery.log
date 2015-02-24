@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  23 FEB 2015 21:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  23 FEB 2015 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -25,6 +25,18 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.2 \usepackage{
+                authblk}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.3 \usepackage{
                 natbib}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
@@ -116,26 +128,38 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 ) (./Real-Time_Scheduling_Algorithms_And_Battery.aux)
 \openout1 = `Real-Time_Scheduling_Algorithms_And_Battery.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
-LaTeX Font Info:    ... okay on input line 4.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
+LaTeX Font Info:    ... okay on input line 5.
 Missing character: There is no â in font ptmb7t!
 Missing character: There is no € in font ptmb7t!
 Missing character: There is no ™ in font ptmb7t!
 (./Real-Time_Scheduling_Algorithms_And_Battery.bbl
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6971824
+l.30 ....org/stamp/stamp.jsp?tp=&arnumber=6971824}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6524965
-l.59 ....org/stamp/stamp.jsp?tp=&arnumber=6524965}
+l.63 ....org/stamp/stamp.jsp?tp=&arnumber=6524965}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -147,7 +171,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6849266
-l.67 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
+l.71 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -159,7 +183,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=1420171
-l.75 ....org/stamp/stamp.jsp?tp=&arnumber=1420171}
+l.79 ....org/stamp/stamp.jsp?tp=&arnumber=1420171}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -171,7 +195,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6852003
-l.84 ....org/stamp/stamp.jsp?tp=&arnumber=6852003}
+l.88 ....org/stamp/stamp.jsp?tp=&arnumber=6852003}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -183,7 +207,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=4086301
-l.92 ....org/stamp/stamp.jsp?tp=&arnumber=4086301}
+l.96 ....org/stamp/stamp.jsp?tp=&arnumber=4086301}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -199,7 +223,7 @@ TC.
 ! File ended while scanning use of \url.
 <inserted text> 
                 \par 
-l.55 ...al-Time_Scheduling_Algorithms_And_Battery}
+l.47 ...al-Time_Scheduling_Algorithms_And_Battery}
                                                   
 I suspect you have forgotten a `}', causing me
 to read past where you wanted me to stop.
@@ -225,7 +249,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.58 \end{document}
+l.50 \end{document}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -240,10 +264,10 @@ or  <return>  to continue without it.
 ### semi simple group (level 1) entered at line 2 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 915 strings out of 493607
- 16340 string characters out of 3149945
- 70904 words of memory out of 3500000
- 4296 multiletter control sequences out of 15000+200000
+ 916 strings out of 493607
+ 16348 string characters out of 3149945
+ 69904 words of memory out of 3500000
+ 4297 multiletter control sequences out of 15000+200000
  33007 words of font info for 62 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
  26i,8n,19p,847b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -251,8 +275,8 @@ Here is how much of TeX's memory you used:
 /fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi
 8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (1 page, 5612
-4 bytes).
+Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (1 page, 5610
+1 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)
  17 compressed objects within 1 object stream

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  22 FEB 2015 15:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  23 FEB 2015 21:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -132,20 +132,10 @@ Missing character: There is no â in font ptmb7t!
 Missing character: There is no € in font ptmb7t!
 Missing character: There is no ™ in font ptmb7t!
 (./Real-Time_Scheduling_Algorithms_And_Battery.bbl
-Underfull \hbox (badness 6141) in paragraph at lines 26--30
-[]\OT1/ptm/m/n/8 A. Tur-ing, ``Com-put-ing ma-chin-ery and in-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 26--30
-\OT1/ptm/m/n/8 tel-li-gence,'' \OT1/ptm/m/it/8 Mind\OT1/ptm/m/n/8 , 1950. [On-l
-ine]. Avail-able:
- []
-
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6524965
-l.61 ....org/stamp/stamp.jsp?tp=&arnumber=6524965}
+l.59 ....org/stamp/stamp.jsp?tp=&arnumber=6524965}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -157,7 +147,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6849266
-l.69 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
+l.67 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -169,7 +159,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=1420171
-l.77 ....org/stamp/stamp.jsp?tp=&arnumber=1420171}
+l.75 ....org/stamp/stamp.jsp?tp=&arnumber=1420171}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -181,7 +171,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6852003
-l.86 ....org/stamp/stamp.jsp?tp=&arnumber=6852003}
+l.84 ....org/stamp/stamp.jsp?tp=&arnumber=6852003}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -193,7 +183,7 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=4086301
-l.94 ....org/stamp/stamp.jsp?tp=&arnumber=4086301}
+l.92 ....org/stamp/stamp.jsp?tp=&arnumber=4086301}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -209,7 +199,7 @@ TC.
 ! File ended while scanning use of \url.
 <inserted text> 
                 \par 
-l.51 ...al-Time_Scheduling_Algorithms_And_Battery}
+l.55 ...al-Time_Scheduling_Algorithms_And_Battery}
                                                   
 I suspect you have forgotten a `}', causing me
 to read past where you wanted me to stop.
@@ -235,7 +225,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.54 \end{document}
+l.58 \end{document}
                    
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -251,17 +241,17 @@ or  <return>  to continue without it.
 ### bottom level 
 Here is how much of TeX's memory you used:
  915 strings out of 493607
- 16341 string characters out of 3149945
+ 16340 string characters out of 3149945
  70904 words of memory out of 3500000
  4296 multiletter control sequences out of 15000+200000
  33007 words of font info for 62 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 26i,8n,19p,901b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 26i,8n,19p,847b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf
 /fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi
 8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fon
 ts/type1/urw/times/utmri8a.pfb>
-Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (1 page, 5648
+Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (1 page, 5612
 4 bytes).
 PDF statistics:
  25 PDF objects out of 1000 (max. 8388607)

@@ -21,19 +21,13 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
-\bibitem{TURING01}
+\bibitem{ARIUN01}
 \BIBentryALTinterwordspacing
-A.~Turing, ``Computing machinery and intelligence,'' \emph{Mind}, 1950.
-  [Online]. Available:
-  \url{http://www.csee.umbc.edu/courses/471/papers/turing.pdf}
-\BIBentrySTDinterwordspacing
-
-\bibitem{PADM01}
-\BIBentryALTinterwordspacing
-P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
-  embedded operating systems,'' \emph{ACM symposium on Operating systems
-  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=502044}
+A.~Maghazeh, U.~D. Bordoloi, A.~Horga, P.~Eles, and Z.~Peng, ``Saving energy
+  without defying deadlines on mobile gpu-based heterogeneous systems,''
+  \emph{IEEE Transactions on Consumer Electronics}, October 2014. [Online].
+  Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6971824}
 \BIBentrySTDinterwordspacing
 
 \bibitem{CHO01}
@@ -51,6 +45,14 @@ L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
   \emph{Integrated Circuits and Systems Design}, pp. 169 -- 174, September
   2004. [Online]. Available:
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1360564}
+\BIBentrySTDinterwordspacing
+
+\bibitem{PADM01}
+\BIBentryALTinterwordspacing
+P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
+  embedded operating systems,'' \emph{ACM symposium on Operating systems
+  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=502044}
 \BIBentrySTDinterwordspacing
 
 \bibitem{SIND01}

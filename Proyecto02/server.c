@@ -161,6 +161,7 @@ void FIFOStyle(){
 		else
 			printf("Se acepto la conexion\n");	
 
+printf("xlkdsjflsajdlksjadlksajdlsjdlsajdlskjfkdsajfdklsadksndklsj");
 			ReadAndWrite((void *)est_acc);
         	close(est_acc);
 	}//end while
@@ -312,33 +313,35 @@ void ReadAndWrite(void *socket){
 	char info [512];
 	//se hace un llamado a read(int fd, void *buf, size_t count)
 	recv(((int)socket), info, 512, 0);
-	
 	char *extension = NULL;
 	char *mime = NULL;
 	char *content = NULL;
 	
 	char *name = getFileRequest(info);
-
 	//revisa que haya extenison en el request del archivo, si lo hay se procede de manera normal
 	if((strchr(name, '.')) != NULL){
 		extension = getFileExtension(name);
 		mime = getMIMEType(extension);	
 		content = NULL;
 	}//fin de if
-	
 	//aqui va metodo para sacar el array del archivo o texto
-	if(mime != NULL && extension != NULL)
-		if(strstr(mime, "text") != NULL)
+	if(mime != NULL && extension != NULL){
+		if(strstr(mime, "text") != NULL){
 			content = getText(name);
-		else
+}
+		else{
+
 			content = getContent(name);
+}
+
+
+}
 
 	if(content == NULL){
 		extension = getFileExtension(SOFT404);
 		mime = getMIMEType(extension);
 		content = getText(SOFT404);
 	}//end if
-
 	//se escribe el http
 	char *date = getDate();
 	char *http_body = "HTTP/1.1 200 OK\nDate:%sContent-Type:%sContent-Lenght:%d\n\n%s";
@@ -346,7 +349,7 @@ void ReadAndWrite(void *socket){
 
 	char* http = (char *) malloc(sizeof(char) * buffer_size);
 	sprintf(http, http_body, date, mime, strlen(content), content);
-	//printf("%s\n\n", http);
+	printf("%s\n\n", http);
 
 	//se hace un llamado a write
 	send(((int)socket), http, strlen(http), 0);
@@ -379,7 +382,6 @@ char *getMIMEType(char *ext){
 	char p [60];
 	char *buffer;  
 	char *t;
-
 	if(!(file = fopen(MIMEFILE, "r")))
 		return NULL;
 
@@ -412,15 +414,15 @@ char *getText(char *fileName){
 	char *buffer;
 	long fsize;
 	char *completeURL = (char *) malloc(sizeof(char) * strlen(url) + strlen(fileName)); 
-	
 	if(strcmp(fileName, "soft404.html") != 0){
 		strcpy(completeURL, url);
+		strcat(completeURL,"/");
 		strcat(completeURL, fileName);
 	}//fin de if
 	else
+{
 		strcpy(completeURL, fileName);
-
-	printf("%s\n", completeURL);
+}
 	if(!(file = fopen(completeURL , "r")))
 		return NULL;
 
@@ -442,7 +444,7 @@ char *getText(char *fileName){
 //--------------------------------------------------------------------------
 char *getContent(char* fileName){
 	FILE *file;
-	
+        printf("%s",fileName);
 	if (!(file = fopen(fileName, "rb")))
 		return NULL;
 	

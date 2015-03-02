@@ -1,4 +1,4 @@
-Servidor tiene los siguientes tipos de solicitudes: </br>
+Servidor tiene los siguientes tipos de solicitudes: <br>
 1. FIFO <br>
 2. Threaded <br>
 3. Pre-threaded <br>

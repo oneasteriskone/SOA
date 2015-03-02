@@ -7,10 +7,10 @@ Servidor tiene los siguientes tipos de solicitudes: <br>
 
 Entonces para poder correr el servidor se tiene que especificar cual de los tipos anteriores se quiere usar  <br>
 Para llamar al servidor utilice el comando: <br>
-./server <tipo> <puerto> <carpeta donde se sirven los archivos > <br>
+./server tipo puerto carpeta donde se sirven los archivos <br>
 
 Para correr el cliente utilice el comando: <br>
-./client <direccion IP> <puerto> <archivo>  <br>
+./client direccion IP puerto archivo  <br>
 
 Falta agregar: N-threads y n-ciclos <br>
 

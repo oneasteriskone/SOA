@@ -152,18 +152,16 @@ void FIFOStyle(){
 		int est_acc;
 		struct sockaddr_in client;
 		est_acc = accept(server_socket, (struct sockaddr *)&client, &sin_size);
-
 		//se revisa que se haya aceptado
 		if(est_acc == -1){
 			perror("error a la hora de aceptar.");
 			exit(-1);
 		}//end if
 		else
-			printf("Se acepto la conexion\n");	
+	           printf("Se acepto la conexion\n");	
 
-printf("xlkdsjflsajdlksjadlksajdlsjdlsajdlskjfkdsajfdklsadksndklsj");
-			ReadAndWrite((void *)est_acc);
-        	close(est_acc);
+		ReadAndWrite((void *)est_acc);
+       	close(est_acc);
 	}//end while
 }//end FIFOStyle
 
@@ -310,6 +308,7 @@ void PreForkStyle(int limit){
 //---------------------------------------------------------------------------
 void ReadAndWrite(void *socket){
 	//se obtiene la informacion enviada por el cliente
+printf("dsadasdsa");
 	char info [512];
 	//se hace un llamado a read(int fd, void *buf, size_t count)
 	recv(((int)socket), info, 512, 0);
@@ -349,8 +348,8 @@ void ReadAndWrite(void *socket){
 
 	char* http = (char *) malloc(sizeof(char) * buffer_size);
 	sprintf(http, http_body, date, mime, strlen(content), content);
-	printf("%s\n\n", http);
-
+//	printf("%s\n\n", http);
+printf("%d\n", strlen(content));
 	//se hace un llamado a write
 	send(((int)socket), http, strlen(http), 0);
 	
@@ -445,7 +444,20 @@ char *getText(char *fileName){
 char *getContent(char* fileName){
 	FILE *file;
         printf("%s",fileName);
-	if (!(file = fopen(fileName, "rb")))
+	char *completeURL = (char *) malloc(sizeof(char) * strlen(url) + strlen(fileName));
+
+
+       if(strcmp(fileName, "soft404.html") != 0){
+                strcpy(completeURL, url);
+                strcat(completeURL,"/");
+                strcat(completeURL, fileName);
+        }//fin de if
+        else
+{
+                strcpy(completeURL, fileName);
+}
+
+	if (!(file = fopen(completeURL, "rb")))
 		return NULL;
 	
 	//obtiene tamañrchivo
@@ -461,11 +473,11 @@ char *getContent(char* fileName){
 		sprintf(caracter, "%c", c);
 		strcat(buffer, caracter);
 	}//end while
-	//fread(buffer, size, 1, file);
+fread(buffer, size, 1, file);
 	
-	//int s = read(file,  buffer, size);
+int s = read(file,  buffer, size);
 
-	//printf("Tamañtell()]:%d\nTamañtrlen()]:%d\n", size, strlen(buffer));
+	printf("Tamañtell()]:%d\nTamañtrlen()]:%d\n", size, strlen(buffer));
 
 	fclose(file);
 	return buffer;

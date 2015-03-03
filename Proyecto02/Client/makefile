@@ -1,2 +1,2 @@
 all:
-	gcc -o client client.c -pthread
+	gcc -o client client.c 

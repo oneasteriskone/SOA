@@ -6,7 +6,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#define BUFSIZE 8196
+#define BUFSIZE 18196
 char *getFileExtension(char *);
 char *getMIMEType(char *);
 #define MIMEFILE "TablaMIME.c"
@@ -24,9 +24,10 @@ int port=atoi(argv[2]);
 char* ip_address=argv[1];
 char buffer[BUFSIZE];
 char* file=argv[3];
-char *extension=getFileExtension(file);
-char *mime= getMIMEType(extension);
-
+//char *extension=getFileExtension(file);
+//char *mime= getMIMEType(extension);
+char* extension="txt";
+char* mime="text/plain"; 
 static struct sockaddr_in serv_addr;
 
 	printf("client trying to connect to %s and port %d\n",ip_address,port);
@@ -42,10 +43,11 @@ static struct sockaddr_in serv_addr;
 		pexit("connect() failed");
 
 	/* Now the sockfd can be used to communicate to the server the GET request */
-char *command;
+char *command=(char *) malloc(sizeof(char) * BUFSIZE);
+//char *command="GET /s.txt HTTP/1.0 \r\n\r\n";
 //char *get_body = "GET %s HTTP/1.1 Host: %s\r\nAccept: %s\r\n\r\n";
 char *get_body = "GET /%s HTTP/1.0 \r\n\r\n" ;
-sprintf(command, get_body, file, ip_address, mime);
+sprintf(command, get_body, file);
 	printf("Send bytes=%d %s\n",strlen(command), command);
 	write(sockfd, command, strlen(command));
 

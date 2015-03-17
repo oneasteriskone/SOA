@@ -15,6 +15,13 @@ int serverSocket, clientSocket;
 int num_requests;
 struct Buffer* buffer;
 
+struct threadInfo
+{
+  int socket;
+  pthread_t id;
+  struct sockaddr_in client;
+};
+
 void killChilds()
 {
   sendKillToChilds(buffer);
@@ -36,7 +43,6 @@ void signalCatcher(int triggeredSignal)
 {
 	switch(triggeredSignal)
   {
-    int pid;
 		case SIGINT:
 		case SIGTERM:
       signal(SIGINT, SIG_DFL);

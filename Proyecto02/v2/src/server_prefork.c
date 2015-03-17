@@ -52,7 +52,6 @@ int send_fd(int fd, int fd_to_send)
     return(0);
 }
 
-
 int recv_fd(int fd)
 {
    int             newfd, nr, status;
@@ -136,6 +135,7 @@ void killChilds()
     printf("pid=[%d] with status=[%d] \n", childPids[i], status);
   }
   free(childPids);
+  //sendKillToChilds(buffer);
 }
 
 void endServer(int code, char* message)
@@ -152,9 +152,9 @@ void endServer(int code, char* message)
 
 void signalCatcher(int triggeredSignal)
 {
+  int pid;
 	switch(triggeredSignal)
   {
-    int pid;
 		case SIGINT:
 		case SIGTERM:
       signal(SIGINT, SIG_DFL);
@@ -164,6 +164,7 @@ void signalCatcher(int triggeredSignal)
 		case SIGUSR1:
       pid = getpid();
       printf("finishing process=[%d] with siguser1.\n", pid);
+      removeValueFromBuffer(buffer, pid);
       if(0 != clientSocket)
         closeSocket(clientSocket);
 			exit(0);
@@ -172,11 +173,17 @@ void signalCatcher(int triggeredSignal)
 
 void serveConnection(int id, int channel, struct Buffer* buffer, int semFreeSlots)
 {
+  int pid = getpid();
   struct sigaction userSignal;
   memset (&userSignal, '\0', sizeof(userSignal));
-  userSignal.sa_handler = &signalCatcher;
-  sigaction(SIGUSR1, &userSignal, NULL);
-  int pid = getpid();
+  userSignal.sa_handler = signalCatcher;
+  userSignal.sa_flags = 0;
+  sigemptyset(&userSignal.sa_mask);
+  if(-1 == sigaction(SIGUSR1, &userSignal, NULL))
+  {
+    removeValueFromBuffer(buffer, pid);
+    err(EXIT_FAILURE, "Couln't set the signal handling for process=[%d]", id);
+  }
   pushValueInBuffer(buffer, pid);
   while(1)
   {
@@ -185,7 +192,7 @@ void serveConnection(int id, int channel, struct Buffer* buffer, int semFreeSlot
     recv(clientSocket, requestInfo, REQUEST_INFO_LENGHT, 0);
     printf("%s\n", requestInfo);
     char *fileRequested = getFileRequest(requestInfo);
-    printf("fileRequested=[%s]\n", fileRequested);
+    //printf("fileRequested=[%s]\n", fileRequested);
     if(fileRequested != 0)
       responseRequest(clientSocket, fileRequested, buffer);
     closeSocket(clientSocket);

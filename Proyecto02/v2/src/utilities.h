@@ -26,14 +26,6 @@
 struct Buffer;
 int mustDie(struct Buffer* buffer);
 
-
-struct threadInfo
-{
-  int socket;
-  pthread_t id;
-  struct sockaddr_in client;
-};
-
 char* url;
 
 long getFileLength(char* fileRequested);

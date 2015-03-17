@@ -16,24 +16,7 @@ struct Buffer* buffer;
 
 void killChilds()
 {
-  int* childPids = getValuesFromBuffer(buffer, 0);
-  int i;
-  for(i = 0; i < BUFFER_SIZE ; i++)
-  {
-    printf("i=[%d] pid=[%d]\n", i, childPids[i]);
-    if(0 == childPids[i])
-      break;
-    kill(childPids[i], SIGUSR1);
-  }
-  for(i = 0; i < BUFFER_SIZE ; i++)
-  {
-    if(0 == childPids[i])
-      break;
-    int status;
-    waitpid(childPids[i], &status, 0);
-    printf("pid=[%d] with status=[%d] \n", childPids[i], status);
-  }
-  free(childPids);
+  sendKillToChilds(buffer);
 }
 
 void endServer(int code, char* message)
@@ -50,9 +33,9 @@ void endServer(int code, char* message)
 
 void signalCatcher(int triggeredSignal)
 {
+  int pid;
 	switch(triggeredSignal)
   {
-    int pid;
 		case SIGINT:
 		case SIGTERM:
       signal(SIGINT, SIG_DFL);

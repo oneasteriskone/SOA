@@ -26,12 +26,12 @@ int pushValueInBuffer(struct Buffer* buffer, int value)
   waitSemaphore(buffer->semId);
 
   int* address = (int*)buffer->address;
-  address[buffer->entries+1]++;
   int i;
   for(i = 0; i < buffer->entries ; i++)
   {
     if(0 == address[i])
     {
+      address[buffer->entries+1]++;
       printf("pushing with i=[%d] value=[%d]\n", i, value);
       address[i] = value;
       break;
@@ -46,12 +46,13 @@ void removeValueFromBuffer(struct Buffer* buffer, int value)
   waitSemaphore(buffer->semId);
 
   int* address = (int*)buffer->address;
-  address[buffer->entries+1]--;
   int i;
   for(i = 0; i < buffer->entries ; i++)
   {
     if(value == address[i])
     {
+      printf("removing i=[%d] with value=[%d]\n", i, value);
+      address[buffer->entries+1]--;
       address[i] = 0;
       break;
     }
@@ -65,13 +66,14 @@ int popValueFromBuffer(struct Buffer* buffer)
   waitSemaphore(buffer->semId);
 
   int* address = (int*)buffer->address;
-  address[buffer->entries+1]--;
   int i;
   int value;
   for(i = 0; i < buffer->entries ; i++)
   {
     if(0 != address[i])
     {
+      printf("poping i=[%d] with value=[%d]\n", i, value);
+      address[buffer->entries+1]--;
       value = address[i];
       address[i] = 0;
       break;

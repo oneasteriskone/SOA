@@ -34,22 +34,22 @@ void endServer(int code, char* message)
   destroyBuffer(buffer);
   closeSocket(serverSocket);
   if(0 == code)
-    warn(message, 0 );// 0 servers as junk to prevent warning
+    warn(message, 0);
   else
-    err(code, message, 0); // 0 servers as junk to prevent warning
+    err(code, message, 0);
 }
 
 void signalCatcher(int triggeredSignal)
 {
-	switch(triggeredSignal)
+  switch(triggeredSignal)
   {
-		case SIGINT:
-		case SIGTERM:
+    case SIGINT:
+    case SIGTERM:
       signal(SIGINT, SIG_DFL);
       signal(SIGTERM, SIG_DFL);
       endServer(0, "Finished server");
-			exit(0);
-	}	
+      exit(0);
+  }  
 }
 
 void* serveConnection(void* data)

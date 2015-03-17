@@ -8,14 +8,14 @@ int num_requests;
 
 void signalCatcher(int triggeredSignal)
 {
-	switch(triggeredSignal)
+  switch(triggeredSignal)
   {
-		case SIGINT:
-			closeSocket(serverSocket);
+    case SIGINT:
+      closeSocket(serverSocket);
       if(clientSocket != 0)
         closeSocket(clientSocket);
-			exit(0);
-	}
+      exit(0);
+  }
 }
 
 void manageConnection(int socket, struct sockaddr_in client)
@@ -26,7 +26,7 @@ void manageConnection(int socket, struct sockaddr_in client)
   char requestInfo[REQUEST_INFO_LENGHT];
   recv(socket, requestInfo, REQUEST_INFO_LENGHT, 0);
 printf("%s\n", requestInfo);
-	char *fileRequested = getFileRequest(requestInfo);
+  char *fileRequested = getFileRequest(requestInfo);
   if(fileRequested != 0)
     responseRequest(socket, fileRequested, 0);
   closeSocket(socket);

@@ -27,28 +27,28 @@ void endServer(int code, char* message)
   destroyBuffer(buffer);
   closeSocket(serverSocket);
   if(0 == code)
-    warn(message, 0); // 0 servers as junk to prevent warning
+    warn(message, 0);
   else
-    err(code, message, 0);// 0 servers as junk to prevent warning
+    err(code, message, 0);
 }
 
 void signalCatcher(int triggeredSignal)
 {
   int pid;
-	switch(triggeredSignal)
+  switch(triggeredSignal)
   {
-		case SIGINT:
-		case SIGTERM:
+    case SIGINT:
+    case SIGTERM:
       signal(SIGINT, SIG_DFL);
       signal(SIGTERM, SIG_DFL);
       endServer(0, "Finished server");
-			exit(0);
-		case SIGUSR1:
+      exit(0);
+    case SIGUSR1:
       pid = getpid();
       printf("finishing process=[%d] with siguser1.\n", pid);
-			closeSocket(clientSocket);
-			exit(0);
-	}	
+      closeSocket(clientSocket);
+      exit(0);
+  }  
 }
 
 void manageConnection(int socket, struct sockaddr_in client)

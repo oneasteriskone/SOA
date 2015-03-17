@@ -19,83 +19,90 @@ static struct cmsghdr   *cmptr = NULL;
 
 int send_fd(int fd, int fd_to_send)
 {
-    struct iovec    iov[1];
-    struct msghdr   msg;
-    char            buf[2];
+  struct iovec iov[1];
+  struct msghdr msg;
+  char buf[2];
 
-    iov[0].iov_base = buf;
-    iov[0].iov_len  = 2;
-    msg.msg_iov     = iov;
-    msg.msg_iovlen  = 1;
-    msg.msg_name    = NULL;
-    msg.msg_namelen = 0;
-    if (fd_to_send < 0) {
-        msg.msg_control    = NULL;
-        msg.msg_controllen = 0;
-        buf[1] = -fd_to_send;
-        if (buf[1] == 0)
-            buf[1] = 1;
-    } else {
-        if (cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
-            return(-1);
-        cmptr->cmsg_level  = SOL_SOCKET;
-        cmptr->cmsg_type   = SCM_RIGHTS;
-        cmptr->cmsg_len    = CONTROLLEN;
-        msg.msg_control    = cmptr;
-        msg.msg_controllen = CONTROLLEN;
-        *(int*)CMSG_DATA(cmptr) = fd_to_send;
-        buf[1] = 0;
-    }
-    buf[0] = 0;
-    if (sendmsg(fd, &msg, 0) != 2)
-        return(-1);
-    return(0);
+  iov[0].iov_base = buf;
+  iov[0].iov_len = 2;
+  msg.msg_iov = iov;
+  msg.msg_iovlen = 1;
+  msg.msg_name = NULL;
+  msg.msg_namelen = 0;
+  if (fd_to_send < 0)
+  {
+    msg.msg_control = NULL;
+    msg.msg_controllen = 0;
+    buf[1] = -fd_to_send;
+    if(0 == buf[1])
+      buf[1] = 1;
+  }
+  else
+  {
+    if (cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
+      return -1;
+    cmptr->cmsg_level = SOL_SOCKET;
+    cmptr->cmsg_type = SCM_RIGHTS;
+    cmptr->cmsg_len = CONTROLLEN;
+    msg.msg_control = cmptr;
+    msg.msg_controllen = CONTROLLEN;
+    *(int*)CMSG_DATA(cmptr) = fd_to_send;
+    buf[1] = 0;
+  }
+  buf[0] = 0;
+  if(sendmsg(fd, &msg, 0) != 2)
+    return -1;
+  return 0;
 }
 
 int recv_fd(int fd)
 {
-   int             newfd, nr, status;
-   char            *ptr;
-   char            buf[MAXLINE];
-   struct iovec    iov[1];
-   struct msghdr   msg;
+  int newfd, nr, status;
+  char *ptr;
+  char buf[MAXLINE];
+  struct iovec iov[1];
+  struct msghdr msg;
 
-   status = -1;
-   for ( ; ; ) {
-       iov[0].iov_base = buf;
-       iov[0].iov_len  = sizeof(buf);
-       msg.msg_iov     = iov;
-       msg.msg_iovlen  = 1;
-       msg.msg_name    = NULL;
-       msg.msg_namelen = 0;
-       if (cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
-           return(-1);
-       msg.msg_control    = cmptr;
-       msg.msg_controllen = CONTROLLEN;
-       if ((nr = recvmsg(fd, &msg, 0)) < 0) {
-           err(0, "recvmsg error");
-       } else if (nr == 0) {
-           warn("connection closed by server");
-           return(-1);
-       }
-       for (ptr = buf; ptr < &buf[nr]; ) {
-           if (*ptr++ == 0) {
-               if (ptr != &buf[nr-1])
-                   err(0, "message format error");
-               status = *ptr & 0xFF;
-               if (status == 0) {
-                   if (msg.msg_controllen != CONTROLLEN)
-                       warn("status = 0 but no fd");
-                   newfd = *(int *)CMSG_DATA(cmptr);
-               } else {
-                   newfd = -status;
-               }
-               nr -= 2;
-           }
+  status = -1;
+  while(1)
+  {
+    iov[0].iov_base = buf;
+    iov[0].iov_len = sizeof(buf);
+    msg.msg_iov = iov;
+    msg.msg_iovlen = 1;
+    msg.msg_name = NULL;
+    msg.msg_namelen = 0;
+    if(cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
+      return(-1);
+    msg.msg_control = cmptr;
+    msg.msg_controllen = CONTROLLEN;
+    if((nr = recvmsg(fd, &msg, 0)) < 0)
+      err(0, "recvmsg error");
+    else if(nr == 0)
+    {
+      warn("connection closed by server");
+      return(-1);
+    }
+    for(ptr = buf; ptr < &buf[nr]; )
+    {
+      if(*ptr++ == 0)
+      {
+        if(ptr != &buf[nr-1])
+          err(0, "message format error");
+        status = *ptr & 0xFF;
+        if(status == 0) {
+          if(msg.msg_controllen != CONTROLLEN)
+            warn("status = 0 but no fd");
+          newfd = *(int *)CMSG_DATA(cmptr);
         }
-        if (status >= 0)
-            return(newfd);
-   }
+        else
+          newfd = -status;
+        nr -= 2;
+      }
+    }
+    if (status >= 0)
+      return newfd;
+  }
 }
 
 int serverSocket;
@@ -145,22 +152,22 @@ void endServer(int code, char* message)
   destroyBuffer(buffer);
   closeSocket(serverSocket);
   if(0 == code)
-    warn(message, 0); // 0 servers as junk to prevent warning
+    warn(message, 0);
   else
-    err(code, message, 0); // 0 servers as junk to prevent warning
+    err(code, message, 0);
 }
 
 void signalCatcher(int triggeredSignal)
 {
-	switch(triggeredSignal)
+  switch(triggeredSignal)
   {
-		case SIGINT:
+    case SIGINT:
     {
       signal(SIGINT, signalCatcher);
       endServer(0, "Finished server");
       break;
     }
-		case SIGUSR1:
+    case SIGUSR1:
     {
       int pid = getpid();
       printf("finishing process=[%d] with siguser1.\n", pid);
@@ -169,7 +176,7 @@ void signalCatcher(int triggeredSignal)
         closeSocket(clientSocket);
       break;
     }
-	}	
+  }  
   exit(0);
 }
 

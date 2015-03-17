@@ -7,7 +7,7 @@
 #define BUFFER_FILE "/soa_buffer_server_preforked"
 #define POOL_SIZE_DEFAULT 20
 
-#define BUFFER_SEM_KEY 0xA61532
+#define BUFFER_SEM_KEY 0xA61534
 
 #define MAXLINE 4096
 
@@ -78,7 +78,6 @@ int recv_fd(int fd)
            warn("connection closed by server");
            return(-1);
        }
-       printf("recv nr=[%d]\n", nr);
        for (ptr = buf; ptr < &buf[nr]; ) {
            if (*ptr++ == 0) {
                if (ptr != &buf[nr-1])
@@ -122,20 +121,21 @@ int getIndexForChildId(int poolSize, int childId)
 
 void killChilds()
 {
+  sendKillToChilds(buffer);
   int i;
   for(i = 0; i < poolSize ; i++)
   {
     printf("i=[%d] pid=[%d]\n", i, childPids[i]);
     kill(childPids[i], SIGUSR1);
   }
+  waitForChildsToFinish(buffer);
   for(i = 0; i < poolSize ; i++)
   {
     int status;
     waitpid(childPids[i], &status, 0);
-    printf("pid=[%d] with status=[%d] \n", childPids[i], status);
+    printf("pid=[%d] with status=[%d] ok?=[%d]\n", childPids[i], status, WIFEXITED(status));
   }
   free(childPids);
-  //sendKillToChilds(buffer);
 }
 
 void endServer(int code, char* message)
@@ -152,38 +152,32 @@ void endServer(int code, char* message)
 
 void signalCatcher(int triggeredSignal)
 {
-  int pid;
 	switch(triggeredSignal)
   {
 		case SIGINT:
-		case SIGTERM:
-      signal(SIGINT, SIG_DFL);
-      signal(SIGTERM, SIG_DFL);
+    {
+      signal(SIGINT, signalCatcher);
       endServer(0, "Finished server");
-			exit(0);
+      break;
+    }
 		case SIGUSR1:
-      pid = getpid();
+    {
+      int pid = getpid();
       printf("finishing process=[%d] with siguser1.\n", pid);
       removeValueFromBuffer(buffer, pid);
       if(0 != clientSocket)
         closeSocket(clientSocket);
-			exit(0);
+      break;
+    }
 	}	
+  exit(0);
 }
 
 void serveConnection(int id, int channel, struct Buffer* buffer, int semFreeSlots)
 {
   int pid = getpid();
-  struct sigaction userSignal;
-  memset (&userSignal, '\0', sizeof(userSignal));
-  userSignal.sa_handler = signalCatcher;
-  userSignal.sa_flags = 0;
-  sigemptyset(&userSignal.sa_mask);
-  if(-1 == sigaction(SIGUSR1, &userSignal, NULL))
-  {
-    removeValueFromBuffer(buffer, pid);
-    err(EXIT_FAILURE, "Couln't set the signal handling for process=[%d]", id);
-  }
+  signal(SIGUSR1, signalCatcher);
+  signal(SIGINT, signalCatcher);
   pushValueInBuffer(buffer, pid);
   while(1)
   {
@@ -281,7 +275,6 @@ int main(int argc, char* argv[])
   initPool(buffer, poolSize);
   printf("Server initialized on port=[%d].\n", port);
   signal(SIGINT, signalCatcher);
-  signal(SIGTERM, signalCatcher);
   runServer();
   return 0;
 }

@@ -9,7 +9,7 @@
 #define BUFFER_SIZE 100
 #define BUFFER_FILE 0
 
-#define BUFFER_SEM_KEY 0xA61531
+#define BUFFER_SEM_KEY 0xA61532
 
 int serverSocket, clientSocket;
 int num_requests;
@@ -25,6 +25,7 @@ struct threadInfo
 void killChilds()
 {
   sendKillToChilds(buffer);
+  waitForChildsToFinish(buffer);
 }
 
 void endServer(int code, char* message)
@@ -58,7 +59,6 @@ void* serveConnection(void* data)
   pushValueInBuffer(buffer, thread->id);
   char requestInfo[REQUEST_INFO_LENGHT];
   recv(thread->socket, requestInfo, REQUEST_INFO_LENGHT, 0);
-  printf("%s\n", requestInfo);
   char *fileRequested = getFileRequest(requestInfo);
   if(fileRequested != 0)
     responseRequest(thread->socket, fileRequested, buffer);

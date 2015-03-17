@@ -5,6 +5,10 @@ void sendKillToChilds(struct Buffer* buffer)
   waitSemaphore(buffer->semId);
   ((int*)buffer->address)[buffer->entries] = 1;
   signalSemaphore(buffer->semId);
+}
+
+void waitForChildsToFinish(struct Buffer* buffer)
+{
   if(((int*)buffer->address)[buffer->entries+1] > 0)
   {
     warn("%d childs are still alive... waiting them", ((int*)buffer->address)[buffer->entries+1]);
@@ -32,7 +36,7 @@ int pushValueInBuffer(struct Buffer* buffer, int value)
     if(0 == address[i])
     {
       address[buffer->entries+1]++;
-      printf("pushing with i=[%d] value=[%d]\n", i, value);
+      //printf("pushing with i=[%d] value=[%d]\n", i, value);
       address[i] = value;
       break;
     }
@@ -51,7 +55,7 @@ void removeValueFromBuffer(struct Buffer* buffer, int value)
   {
     if(value == address[i])
     {
-      printf("removing i=[%d] with value=[%d]\n", i, value);
+      //printf("removing i=[%d] with value=[%d]\n", i, value);
       address[buffer->entries+1]--;
       address[i] = 0;
       break;
@@ -72,7 +76,7 @@ int popValueFromBuffer(struct Buffer* buffer)
   {
     if(0 != address[i])
     {
-      printf("poping i=[%d] with value=[%d]\n", i, value);
+      //printf("poping i=[%d] with value=[%d]\n", i, value);
       address[buffer->entries+1]--;
       value = address[i];
       address[i] = 0;

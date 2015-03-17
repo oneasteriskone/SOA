@@ -62,7 +62,7 @@ void responseRequest(int socket, char* fileRequested, struct Buffer* buffer)
       sendHeader(socket, mime, contentLength);
       sendFile(socket, file, buffer);
     }
-    close(file);
+    fclose(file);
   }
   free(fileRequested);
 }

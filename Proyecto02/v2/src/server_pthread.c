@@ -8,7 +8,7 @@
 #define BUFFER_SIZE 100
 #define BUFFER_FILE 0
 
-#define BUFFER_SEM_KEY 0xA61531
+#define BUFFER_SEM_KEY 0xA61532
 
 int serverSocket, clientSocket;
 int num_requests;
@@ -24,6 +24,7 @@ struct threadInfo
 void killChilds()
 {
   sendKillToChilds(buffer);
+  waitForChildsToFinish(buffer);
 }
 
 void endServer(int code, char* message)

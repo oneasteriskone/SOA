@@ -7,7 +7,7 @@
 #define BUFFER_FILE "/soa_buffer_server_preforked"
 #define POOL_SIZE_DEFAULT 20
 
-#define BUFFER_SEM_KEY 0xA61532
+#define BUFFER_SEM_KEY 0xA61538
 
 int serverSocket;
 //int clientSocket;
@@ -24,6 +24,7 @@ int poolSize;
 void killChilds()
 {
   sendKillToChilds(buffer);
+  waitForChildsToFinish(buffer);
 }
 
 void endServer(int code, char* message)
@@ -67,7 +68,7 @@ void serveConnection(void* data)
     int clientSocket = popValueFromBuffer(buffer);
     char requestInfo[REQUEST_INFO_LENGHT];
     recv(clientSocket, requestInfo, REQUEST_INFO_LENGHT, 0);
-    printf("%s\n", requestInfo);
+    //printf("%s\n", requestInfo);
     char *fileRequested = getFileRequest(requestInfo);
     printf("fileRequested=[%s]\n", fileRequested);
     if(fileRequested != 0)

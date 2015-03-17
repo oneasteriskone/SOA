@@ -4,7 +4,7 @@
 #define MAX_CHILD_PROCESS 20
 
 
-#define BUFFER_SIZE 100
+#define BUFFER_SIZE 200
 #define BUFFER_FILE "/soa_buffer_server_forked"
 
 #define BUFFER_SEM_KEY 0xA61531
@@ -16,6 +16,7 @@ struct Buffer* buffer;
 void killChilds()
 {
   sendKillToChilds(buffer);
+  waitForChildsToFinish(buffer);
 }
 
 void endServer(int code, char* message)
@@ -58,13 +59,11 @@ void manageConnection(int socket, struct sockaddr_in client)
     err(EXIT_FAILURE, "Failed creating a child process to handle request from [%s]", address);
   else if(pid == 0)
   {
-    struct sigaction userSignal;
-    memset (&userSignal, '\0', sizeof(userSignal));
-    userSignal.sa_handler = &signalCatcher;
-    sigaction(SIGUSR1, &userSignal, NULL);
-    signal(SIGINT, SIG_DFL);
-    signal(SIGTERM, SIG_DFL);
     pid = getpid();
+    if(0 == pushValueInBuffer(buffer, pid))
+      err(EXIT_FAILURE, "Couldn't add the process with pid=[%d] to the buffer", pid);
+    //signal(SIGUSR1, signalCatcher);
+    signal(SIGINT, SIG_IGN);
     printf("Client IP Address=[%s] with pid=[%d]\n", address, pid);
     char requestInfo[REQUEST_INFO_LENGHT];
     recv(socket, requestInfo, REQUEST_INFO_LENGHT, 0);
@@ -76,8 +75,6 @@ void manageConnection(int socket, struct sockaddr_in client)
     removeValueFromBuffer(buffer, pid);
     exit(0);
   }
-  if(0 == pushValueInBuffer(buffer, pid))
-    endServer(EXIT_FAILURE, "Couldn't push the process id of the forked process");
 
   close(socket);
 }
@@ -116,7 +113,6 @@ int main(int argc, char* argv[])
   buffer = initBuffer(BUFFER_SIZE, BUFFER_FILE, BUFFER_SEM_KEY);
   printf("Server initialized on port=[%d].\n", port);
   signal(SIGINT, signalCatcher);
-  signal(SIGTERM, signalCatcher);
   runServer();
   return 0;
 }

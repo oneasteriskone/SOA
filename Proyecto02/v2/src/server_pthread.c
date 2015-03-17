@@ -34,9 +34,9 @@ void endServer(int code, char* message)
   destroyBuffer(buffer);
   closeSocket(serverSocket);
   if(0 == code)
-    warn(message);
+    warn(message, 0 );// 0 servers as junk to prevent warning
   else
-    err(code, message);
+    err(code, message, 0); // 0 servers as junk to prevent warning
 }
 
 void signalCatcher(int triggeredSignal)

@@ -345,7 +345,7 @@ printf("dsadasdsa");
 	char *date = getDate();
 	char *http_body = "HTTP/1.1 200 OK\nDate:%sContent-Type:%sContent-Lenght:%d\n\n%s";
 	long buffer_size = strlen(mime) + strlen(content) + strlen(http_body) + strlen(date);
-
+	
 	char* http = (char *) malloc(sizeof(char) * buffer_size);
 	sprintf(http, http_body, date, mime, strlen(content), content);
 //	printf("%s\n\n", http);

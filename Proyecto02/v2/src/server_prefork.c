@@ -9,16 +9,117 @@
 
 #define BUFFER_SEM_KEY 0xA61532
 
+#define MAXLINE 4096
+
+
+#include <sys/socket.h>
+#define CONTROLLEN  CMSG_LEN(sizeof(int))
+
+static struct cmsghdr   *cmptr = NULL;
+
+int send_fd(int fd, int fd_to_send)
+{
+    struct iovec    iov[1];
+    struct msghdr   msg;
+    char            buf[2];
+
+    iov[0].iov_base = buf;
+    iov[0].iov_len  = 2;
+    msg.msg_iov     = iov;
+    msg.msg_iovlen  = 1;
+    msg.msg_name    = NULL;
+    msg.msg_namelen = 0;
+    if (fd_to_send < 0) {
+        msg.msg_control    = NULL;
+        msg.msg_controllen = 0;
+        buf[1] = -fd_to_send;
+        if (buf[1] == 0)
+            buf[1] = 1;
+    } else {
+        if (cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
+            return(-1);
+        cmptr->cmsg_level  = SOL_SOCKET;
+        cmptr->cmsg_type   = SCM_RIGHTS;
+        cmptr->cmsg_len    = CONTROLLEN;
+        msg.msg_control    = cmptr;
+        msg.msg_controllen = CONTROLLEN;
+        *(int*)CMSG_DATA(cmptr) = fd_to_send;
+        buf[1] = 0;
+    }
+    buf[0] = 0;
+    if (sendmsg(fd, &msg, 0) != 2)
+        return(-1);
+    return(0);
+}
+
+
+int recv_fd(int fd)
+{
+   int             newfd, nr, status;
+   char            *ptr;
+   char            buf[MAXLINE];
+   struct iovec    iov[1];
+   struct msghdr   msg;
+
+   status = -1;
+   for ( ; ; ) {
+       iov[0].iov_base = buf;
+       iov[0].iov_len  = sizeof(buf);
+       msg.msg_iov     = iov;
+       msg.msg_iovlen  = 1;
+       msg.msg_name    = NULL;
+       msg.msg_namelen = 0;
+       if (cmptr == NULL && (cmptr = malloc(CONTROLLEN)) == NULL)
+           return(-1);
+       msg.msg_control    = cmptr;
+       msg.msg_controllen = CONTROLLEN;
+       if ((nr = recvmsg(fd, &msg, 0)) < 0) {
+           err(0, "recvmsg error");
+       } else if (nr == 0) {
+           warn("connection closed by server");
+           return(-1);
+       }
+       printf("recv nr=[%d]\n", nr);
+       for (ptr = buf; ptr < &buf[nr]; ) {
+           if (*ptr++ == 0) {
+               if (ptr != &buf[nr-1])
+                   err(0, "message format error");
+               status = *ptr & 0xFF;
+               if (status == 0) {
+                   if (msg.msg_controllen != CONTROLLEN)
+                       warn("status = 0 but no fd");
+                   newfd = *(int *)CMSG_DATA(cmptr);
+               } else {
+                   newfd = -status;
+               }
+               nr -= 2;
+           }
+        }
+        if (status >= 0)
+            return(newfd);
+   }
+}
+
 int serverSocket;
 int clientSocket;
 int num_requests;
 struct Buffer* buffer;
 
-int semGo;
-int semActive;
+int semFreeSlots;
 int* childPids;
-int* pipes;
+int* serverPipes;
+int* clientPipes;
 int poolSize;
+int* childCommunicationChannel;
+
+int getIndexForChildId(int poolSize, int childId)
+{
+  int i;
+  for(i = 0 ; i < poolSize ; i++)
+    if(childPids[i] == childId)
+      return i;
+  return -1;
+}
 
 void killChilds()
 {
@@ -69,16 +170,17 @@ void signalCatcher(int triggeredSignal)
 	}	
 }
 
-void serveConnection(int id, int pipe, struct Buffer* buffer, int semGo, int semActive)
+void serveConnection(int id, int channel, struct Buffer* buffer, int semFreeSlots)
 {
   struct sigaction userSignal;
   memset (&userSignal, '\0', sizeof(userSignal));
   userSignal.sa_handler = &signalCatcher;
   sigaction(SIGUSR1, &userSignal, NULL);
+  int pid = getpid();
+  pushValueInBuffer(buffer, pid);
   while(1)
   {
-    waitSemaphore(semGo);
-    clientSocket = popValueFromBuffer(buffer);
+    clientSocket = recv_fd(channel);
     char requestInfo[REQUEST_INFO_LENGHT];
     recv(clientSocket, requestInfo, REQUEST_INFO_LENGHT, 0);
     printf("%s\n", requestInfo);
@@ -88,7 +190,8 @@ void serveConnection(int id, int pipe, struct Buffer* buffer, int semGo, int sem
       responseRequest(clientSocket, fileRequested, buffer);
     closeSocket(clientSocket);
     clientSocket = 0;
-    signalSemaphore(semActive);
+    pushValueInBuffer(buffer, pid);
+    signalSemaphore(semFreeSlots);
   }
   exit(0);
 }
@@ -97,44 +200,44 @@ void initPool(struct Buffer* buffer, int poolSize)
 {
   int i;
   int pid;
-  semGo = createSemaphore(BUFFER_SEM_KEY + 1, 0);
-  semActive = createSemaphore(BUFFER_SEM_KEY + 2, poolSize);
+  semFreeSlots = createSemaphore(BUFFER_SEM_KEY + 1, poolSize);
   childPids = (int*)calloc(poolSize, sizeof(int));
-  pipes = (int*)calloc(poolSize, sizeof(int));
-  int pipeFileDescriptors[2];
+  childCommunicationChannel = (int*)calloc(poolSize, sizeof(int));
+  int pair[2];
   for(i = 0 ; i < poolSize ; i++)
   {
-    pipe(pipeFileDescriptors);
+    socketpair(PF_LOCAL, SOCK_STREAM, 0, pair);
     pid = fork();
     if(pid < 0)
       endServer(EXIT_FAILURE, "Couldn't create the pool");
     else if(pid > 0)
     {
-      close(pipeFileDescriptors[1]);
-      pipes[i] = pipeFileDescriptors[0];
+      close(pair[1]);
+      childCommunicationChannel[i] = pair[0];
       childPids[i] = pid;
     }
     else
     {
-      close(pipeFileDescriptors[0]);
-      serveConnection(i, pipeFileDescriptors[1], buffer, semGo, semActive);
+      close(pair[0]);
+      serveConnection(i, pair[1], buffer, semFreeSlots);
     }
   }
 }
 
 void manageConnection(int socket, struct sockaddr_in client)
 {
-  pushValueInBuffer(buffer, socket);
-  signalSemaphore(semGo);
-  //close(socket);
-  waitSemaphore(semActive);
+  waitSemaphore(semFreeSlots);
+  int childPid = popValueFromBuffer(buffer);
+  int childIndex = getIndexForChildId(poolSize, childPid);
+  printf("Found index=[%d] with pid=[%d].\n", childIndex, childPid);
+  send_fd(childCommunicationChannel[childIndex], socket);
+  close(socket);
 }
 
 void runServer()
 {
   while(1)
   {
-    printf("Waiting...\n");
     if(listen(serverSocket, 10) == -1)
     {
       closeSocket(serverSocket);

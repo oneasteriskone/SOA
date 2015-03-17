@@ -25,6 +25,7 @@ void manageConnection(int socket, struct sockaddr_in client)
   printf("Client IP Address=[%s]\n", address);
   char requestInfo[REQUEST_INFO_LENGHT];
   recv(socket, requestInfo, REQUEST_INFO_LENGHT, 0);
+printf("%s\n", requestInfo);
 	char *fileRequested = getFileRequest(requestInfo);
   if(fileRequested != 0)
     responseRequest(socket, fileRequested, 0);

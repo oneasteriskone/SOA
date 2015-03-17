@@ -58,6 +58,7 @@ void* serveConnection(void* data)
   pushValueInBuffer(buffer, thread->id);
   char requestInfo[REQUEST_INFO_LENGHT];
   recv(thread->socket, requestInfo, REQUEST_INFO_LENGHT, 0);
+printf("%s\n", requestInfo);
   char *fileRequested = getFileRequest(requestInfo);
   if(fileRequested != 0)
     responseRequest(thread->socket, fileRequested, buffer);

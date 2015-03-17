@@ -68,7 +68,7 @@ void serveConnection(void* data)
     int clientSocket = popValueFromBuffer(buffer);
     char requestInfo[REQUEST_INFO_LENGHT];
     recv(clientSocket, requestInfo, REQUEST_INFO_LENGHT, 0);
-    //printf("%s\n", requestInfo);
+    printf("%s\n", requestInfo);
     char *fileRequested = getFileRequest(requestInfo);
     printf("fileRequested=[%s]\n", fileRequested);
     if(fileRequested != 0)

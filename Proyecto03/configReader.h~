@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+#define MAX_LENGTH 100
+
+void configReader(int *carMean, int *carCounter) {
+
+    char line[MAX_LENGTH];
+    FILE *fp = fopen("config.txt", "r");
+
+    while (fgets(line, MAX_LENGTH, fp)) {
+		printf("line = %s", line);
+        sscanf(line, "carMean %d", carMean);
+		printf("carMean after sscanf = %d\n",  *carMean);
+        sscanf(line, "carCounter %d", carCounter);
+		printf("carCounter after sscanf = %d\n",  *carCounter);
+    }
+    fclose(fp);
+}

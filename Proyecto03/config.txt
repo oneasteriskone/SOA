@@ -1,0 +1,22 @@
+mediaE 3
+mediaW 9
+minSPD 15
+maxSPD 50
+ambPerc 0
+carCounter 0
+policeCarsPerTurnE 5
+policeCarsPerTurnW 7
+policeCarCounterW 5
+policeCarCounterE 7
+bridgeSize 25
+kSemE 10
+kSemW 12
+semGreenE 0 //Yes = 1 No = 0
+semGreenW 0 //Yes = 1 No = 0
+strategy 0
+bridgeIsFreeE 1 //Yes = 1 No = 0
+bridgeIsFreeW 1 //Yes = 1 No = 0
+isFirstInLineAmbE 0 //Yes = 1 No = 0
+isFirstInLineAmbW 0 //Yes = 1 No = 0
+maxSpeedInBridge 1000
+lastCarInBridge 0

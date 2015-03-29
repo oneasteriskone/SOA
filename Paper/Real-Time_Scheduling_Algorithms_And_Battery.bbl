@@ -30,53 +30,13 @@ A.~Maghazeh, U.~D. Bordoloi, A.~Horga, P.~Eles, and Z.~Peng, ``Saving energy
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6971824}
 \BIBentrySTDinterwordspacing
 
-\bibitem{CHO01}
+\bibitem{FAN01}
 \BIBentryALTinterwordspacing
-M.-H. Cho, J.-S. Lim, and C.-H. Lee, ``ertos : The low-power real-time
-  operating system for wearable computers,'' \emph{IEEE Transactions on
-  Consumer Electronics}, pp. 1015 -- 1019, May 2009. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5156939}
-\BIBentrySTDinterwordspacing
-
-\bibitem{BECKER01}
-\BIBentryALTinterwordspacing
-L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
-  the synthesis of real-time scheduling algorithms for embedded applications,''
-  \emph{Integrated Circuits and Systems Design}, pp. 169 -- 174, September
-  2004. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1360564}
-\BIBentrySTDinterwordspacing
-
-\bibitem{PADM01}
-\BIBentryALTinterwordspacing
-P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
-  embedded operating systems,'' \emph{ACM symposium on Operating systems
-  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
-  \url{http://dl.acm.org/citation.cfm?id=502044}
-\BIBentrySTDinterwordspacing
-
-\bibitem{SIND01}
-\BIBentryALTinterwordspacing
-S.~Sindia, A.~S.~G. Lim, V.~Agrawal, B.~Black, and P.~Agrawal, ``Mobsched:
-  Customizable scheduler for mobile cloud computing,'' \emph{45th Southeastern
-  Symposium on System Theory}, pp. 129 -- 134, March 2013. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6524965}
-\BIBentrySTDinterwordspacing
-
-\bibitem{NIR01}
-\BIBentryALTinterwordspacing
-A.~Nir, M.;~Matrawy and M.~St-Hilaire, ``An energy optimizing scheduler for
-  mobile cloud computing environments,'' \emph{Computer Communications
-  Workshops}, pp. 404 -- 409, April 2014. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6849266}
-\BIBentrySTDinterwordspacing
-
-\bibitem{ALSA01}
-\BIBentryALTinterwordspacing
-S.~Alsalih, W.;~Akl and H.~Hassancin, ``Energy-aware task scheduling: towards
-  enabling mobile computing over manets,'' \emph{Parallel and Distributed
-  Processing Symposium}, April 2005. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1420171}
+F.~Wu, E.~Agu, and C.~Lindsay, ``Adaptive cpu scheduling to conserve energy in
+  real-time mobile graphics applications,'' \emph{International Symposium of
+  Advances in Visual Computing}, pp. 624--633, December 2008. [Online].
+  Available:
+  \url{http://link.springer.com/chapter/10.1007/978-3-540-89639-5\_60}
 \BIBentrySTDinterwordspacing
 
 \bibitem{WEI01}
@@ -88,21 +48,37 @@ J.~Wei, R.~Ren, E.~Juarez, and F.~Pescador, ``A linux implementation of the
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6852003}
 \BIBentrySTDinterwordspacing
 
-\bibitem{PADM02}
+\bibitem{KISO01}
 \BIBentryALTinterwordspacing
-S.~Padmanabhan~Ray, P.~Dasgupta, and P.~Chakrabarti, ``Formal verification of
-  power scheduling policies for battery powered mobile systems,'' \emph{Annual
-  IEEE India Conference}, pp. 1 -- 6, September 2006. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4086301}
+K.~Yu, D.~Han, C.~Youn, S.~Hwang, and J.~Lee, ``Power-aware task scheduling for
+  big.little mobile processor,'' \emph{International SoC Design Conference
+  (ISOCC)}, pp. 208 -- 212, November 2013. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6864009}
 \BIBentrySTDinterwordspacing
 
-\bibitem{FAN01}
+\bibitem{BECKER01}
 \BIBentryALTinterwordspacing
-F.~Wu, E.~Agu, and C.~Lindsay, ``Adaptive cpu scheduling to conserve energy in
-  real-time mobile graphics applications,'' \emph{International Symposium of
-  Advances in Visual Computing}, pp. 624--633, December 2008. [Online].
-  Available:
-  \url{http://download.springer.com/static/pdf/234/chp%253A10.1007%252F978-3-540-89639-5_60.pdf?auth66=1424629972_a0b70e41b35ac03c864c6b487aa1fc1b&ext=.pdf}
+L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
+  the synthesis of real-time scheduling algorithms for embedded applications,''
+  \emph{Integrated Circuits and Systems Design}, pp. 169 -- 174, September
+  2004. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1360564}
+\BIBentrySTDinterwordspacing
+
+\bibitem{CHO01}
+\BIBentryALTinterwordspacing
+M.-H. Cho, J.-S. Lim, and C.-H. Lee, ``ertos : The low-power real-time
+  operating system for wearable computers,'' \emph{IEEE Transactions on
+  Consumer Electronics}, pp. 1015 -- 1019, May 2009. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5156939}
+\BIBentrySTDinterwordspacing
+
+\bibitem{NIR01}
+\BIBentryALTinterwordspacing
+M.~Nir, A.~Matrawy, and M.~St-Hilaire, ``An energy optimizing scheduler for
+  mobile cloud computing environments,'' \emph{Computer Communications
+  Workshops}, pp. 404 -- 409, April 2014. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6849266}
 \BIBentrySTDinterwordspacing
 
 \bibitem{ALMA01}
@@ -114,12 +90,12 @@ N.~Al-maweri A, K.~Samsudin~B, and F.~Rokhani~C, ``Runtime cpu scheduler
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=5443304}
 \BIBentrySTDinterwordspacing
 
-\bibitem{KISO01}
+\bibitem{PADM01}
 \BIBentryALTinterwordspacing
-K.~Yu, D.~Han, C.~Youn, S.~Hwang, and J.~Lee, ``Power-aware task scheduling for
-  big.little mobile processor,'' \emph{International SoC Design Conference
-  (ISOCC)}, pp. 208 -- 212, November 2013. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6864009}
+P.~Pillai and K.~G. Shin, ``Real-time dynamic voltage scaling for low-power
+  embedded operating systems,'' \emph{ACM symposium on Operating systems
+  principles}, pp. 89 -- 102, December 2001. [Online]. Available:
+  \url{http://dl.acm.org/citation.cfm?id=502044}
 \BIBentrySTDinterwordspacing
 
 \bibitem{POHS01}
@@ -128,6 +104,30 @@ P.-H. Tseng, P.-C. Hsiu, C.-C. Pan, and T.-W. Kuo, ``User-centric
   energy-efficient scheduling on multi-core mobile devices,'' \emph{Design
   Automation Conference (DAC)}, pp. 1 -- 6, June 2014. [Online]. Available:
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6881412}
+\BIBentrySTDinterwordspacing
+
+\bibitem{PADM02}
+\BIBentryALTinterwordspacing
+S.~Padmanabhan~Ray, P.~Dasgupta, and P.~Chakrabarti, ``Formal verification of
+  power scheduling policies for battery powered mobile systems,'' \emph{Annual
+  IEEE India Conference}, pp. 1 -- 6, September 2006. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=4086301}
+\BIBentrySTDinterwordspacing
+
+\bibitem{SIND01}
+\BIBentryALTinterwordspacing
+S.~Sindia, A.~S.~G. Lim, V.~Agrawal, B.~Black, and P.~Agrawal, ``Mobsched:
+  Customizable scheduler for mobile cloud computing,'' \emph{45th Southeastern
+  Symposium on System Theory}, pp. 129 -- 134, March 2013. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=6524965}
+\BIBentrySTDinterwordspacing
+
+\bibitem{ALSA01}
+\BIBentryALTinterwordspacing
+W.~Alsalih, S.~Akl, and H.~Hassancin, ``Energy-aware task scheduling: towards
+  enabling mobile computing over manets,'' \emph{Parallel and Distributed
+  Processing Symposium}, April 2005. [Online]. Available:
+  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1420171}
 \BIBentrySTDinterwordspacing
 
 \end{thebibliography}

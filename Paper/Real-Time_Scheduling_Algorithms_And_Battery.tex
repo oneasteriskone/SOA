@@ -1,6 +1,7 @@
 \batchmode
 \usepackage{authblk}
 \usepackage{natbib}
+\usepackage{multirow}
 \documentclass[conference]{IEEEtran}
 \begin{document} 
 
@@ -34,11 +35,11 @@ The battery lifetime is an important factor in assessing the user’s satisfacti
 In the mobile devices, the greatest obstacle is the battery lifetime, which restricts the system function to a limite period of time. 
 Our investigation pretends take advantage of the new technologies and scheduling algorithms to manage the energy in mobile systems where the multiprocessor is capable of operation in different voltage levels which would implicate different level of energy consumption.
 To demonstrate that this systems operate with this restrictions, we will prove that every task of critical time that are part of the system will deliver results in the appropriate time, with the expected outcome, in a predictable way and without failures. 
-In order to resolve this problem we will develop a new algorithm, with new planification methods, design tools and real-time software validation systems.
+In order to resolve this problem we will develop a new algorithm, with new scheduling methods, design tools and real-time software validation systems.
 
 The specific objectives of this investigation are:
 \begin{itemize}
-\item Propose a novel solution to the planification of dynamic tasks in mobile devices and minimize the energy consumption of the total amount of tasks on the system.
+\item Propose a novel solution to the scheduling of dynamic tasks in mobile devices and minimize the energy consumption of the total amount of tasks on the system.
 \item Monitor the battery capacity dinamically, the energy consumption on different components of the system and the frequency of when the battery gets recharged.
 \item Develop new models and algorithms in real-time systems with the energy consumption and fault tolerance restrictions.
 \end{itemize}
@@ -52,10 +53,49 @@ Section 2 provides a more detailed background about the challenges with real tim
 \section{Background}
 \subsection{Background of real-time systems}
 The greatest objective of real-time systems is to meet on time their activities to satisfy the requirements of their application. So the design of those systems should be capable of analyzing the characteristics of the real-time tasks and extract their requirements to have the system ensure schedulability, which means, meeting the deadlines in all the tasks in its execution.\\
-A real-time application is compose by a number of concurrent tasks that cooperate among themselves.  This tasks are activate  on regular and irregular intervals and they have to complete their execution according to a deadline. On each activation, the task completes a computation, and interacts with an external environment. According to the real-time requirements, a task must be: 1) Critical: if not meeting a timed requirement will cause a failure because of its consequences on the system, 2) Uncritical: It is possible to tolerate the failure to meet the deadline of a timed requirement. Some of the attributes of a real-time task are: a) maximum time of computation which is given by the implementation, b) period or frequency of the run and c) the response time, which is defined by the application attributes. Therefore, the tasks can be: periodic: that are executed with a fixed or variable periodicity and aperiodic: which are run in response to an event that occur on the system at irregular intervals
+A real-time application is compose by a number of concurrent tasks that cooperate among themselves.  This tasks are activate  on regular and irregular intervals and they have to complete their execution according to a deadline. On each activation, the task completes a computation, and interacts with an external environment. According to the real-time requirements, a task must be: 1) Critical: if not meeting a timed requirement will cause a failure because of its consequences on the system, 2) Uncritical: It is possible to tolerate the failure to meet the deadline of a timed requirement. Some of the attributes of a real-time task are: a) maximum time of computation which is given by the implementation, b) period or frequency of the run and c) the response time, which is defined by the application attributes. Therefore, the tasks can be: periodic: that are executed with a fixed or variable periodicity and aperiodic: which are run in response to an event that occur on the system at irregular intervals.
  
  \subsection{Background of mobile devices with energy management}
+
+ With the recent arrival of portable systems and communications, the energy consumption has been a major aspect to consider on the design of these systems. Currently, the market offers functions of energy management that allow to disable certain components or choosing different levels of energy consumption. Besides that, the software and hardware makers have agreed on creating standards like the ACPI (Energy Interface of Advanced Configuration) to handle energy con portable computers, which allow to manage different modes of operation (voltage) on the system. Recent investigation have shown that reduction on memory consumption can be achieved through the dynamic management of frequency/voltage and through compiling techniques and algorithms.\\
+ Thanks to the progress in the microprocesors technologies we can see mechanisms on personal computers to disable (shutdown) the computer after detecting long periods of inactivity. In this case the computer changes to an operation mode where the secondary devices are shutdown like disks, screen and some parts of the memory which reduces the energy consumption considerably. This type of multiprocessors are capable to operate on a frecuency and voltage range, which allows the system to complete computations to different speeds \cite{PADM01}. The capacity of decrementing the processor velocity allows the system to reduce its memory consumption. The dynamic scheduling of voltage in real-time systems and meeting the timed restrictions has the objective to minimize the energy consumption.\\
+
+ Minimizing the energy consumption in this kind of system is important because it allows to increase the lifetime of batteries and at the same time it helps to extend the time of the system functionality. On the other hand, given this systems being real-time, the voltage reduction produce an increase in the computation time and this could compromise meeting the deadlines. Because of this, when reducing the energy it is needed to verify that the timed restrictions don't get broken. So, we can assure that the factors to control this type of systems are: a) saving the energy, b) voltage levels, c) computation time and d) scheduling of the real-time system.\\
  
+ For example, in recent studies \cite{Carroll_ananalysis} it's being verified that for a smartphone are produced the following percentages on energy consumption. Where Suspend represents the baseline case of a device which is on standby,without placing or receiving calls or messages. The casual pattern represents a user who uses the phone for a small number of voice calls and text messages each day. Regular represents a commuter with extended time of listening to music or podcasts, combined with more lengthy or frequent phone calls, messaging and a bit of emailing. The business pattern features extended talking and email use together with some web browsing. Finally, the PMD (portable media device) case represents extensive media playback:
+ 
+\begin{table}[h]
+\begin{tabular}{|l|c|c|c|c|c|c|}
+\hline
+Workload & \multicolumn{1}{l|}{SMS} & \multicolumn{1}{l|}{Video} & \multicolumn{1}{l|}{Audio} & \multicolumn{1}{l|}{Phone call} & \multicolumn{1}{l|}{Web browsing} & \multicolumn{1}{l|}{Email} \\ \hline
+Suspend  & -                        & -                          & -                          & -                               & -                                 & -                          \\ \hline
+Casual   & 15                       & -                          & -                          & 15                              & -                                 & -                          \\ \hline
+Regular  & 30                       & -                          & 60                         & 30                              & 15                                & 15                         \\ \hline
+Business & 30                       & -                          & -                          & 60                              & 30                                & 30                         \\ \hline
+PMD      & -                        & 60                         & 180                        & -                               & \multicolumn{1}{l|}{-}            & \multicolumn{1}{l|}{-}     \\ \hline
+\end{tabular}
+\caption {Usage patterns, showing total time for each activity in minutes. Taken from  A. Carroll and G. Heiser, “An analysis of power consumption in a smartphone,” in In Proceedings of the 2010 USENIX conference on USENIX annual technical conference, 2010.}
+\end{table}
+  
+ % Please add the following required packages to your document preamble:
+% \usepackage{multirow}
+\begin{table}[h]
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline
+\multirow{Workload} & \multicolumn{7}{c|}{Power (\% of total)}  & \multirow{\begin{tabular}[c]{@{}}Battery life\\(hours)\end{tabular}}\\ \cline{2-8}
+                          & GSM & CPU & RAM & Graphics & LCD & Backlight & Rest &    \\ \hline
+Suspend                   & 45  & 19  & 4   & 13       & 1   & 0         & 19   & 49 \\ \hline
+Casual                    & 47  & 16  & 4   & 12       & 2   & 3         & 16   & 40 \\ \hline
+Regular                   & 44  & 14  & 4   & 14       & 4   & 7         & 13   & 27 \\ \hline
+Business                  & 51  & 11  & 3   & 11       & 4   & 11        & 10   & 21 \\ \hline
+PMD                       & 31  & 19  & 5   & 17       & 6   & 6         & 14   & 29 \\ \hline
+\end{tabular}
+\caption {Daily energy use and battery life under a number of usage patterns. Taken from  A. Carroll and G. Heiser, “An analysis of power consumption in a smartphone,” in In Proceedings of the 2010 USENIX conference on USENIX annual technical conference, 2010.}
+\end{table}
+
+With this example is possible to observe when managing efficiently the energy throught the system components we can achieve a reduction on the voltage consumption.
+ 
+Power management (PM) schemes from the operating system level is a promising method to manage the battery lifetime because the OS is aware of the battery discharging status, the application energy requests as well as the device power states \cite{PADM02}
  
 \section{Scheduling algorithm}
 
@@ -68,7 +108,7 @@ A real-time application is compose by a number of concurrent tasks that cooperat
 
 \nocite{*}
 
-\bibliographystyle{IEEEtran}
+\bibliographystyle{IEEEtranS} %sorted by Author's Name
 \bibliography{Real-Time_Scheduling_Algorithms_And_Battery}
 
 

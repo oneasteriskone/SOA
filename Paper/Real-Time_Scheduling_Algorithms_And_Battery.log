@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  3 APR 2015 01:06
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  3 APR 2015 14:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -38,6 +38,18 @@ Type  H <return>  for immediate help.
                                                   
 l.3 \usepackage{
                 natbib}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.4 \usepackage{
+                multirow}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
@@ -128,18 +140,18 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/it' in size <24> not available
 ) (./Real-Time_Scheduling_Algorithms_And_Battery.aux)
 \openout1 = `Real-Time_Scheduling_Algorithms_And_Battery.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 5.
-LaTeX Font Info:    ... okay on input line 5.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
 Missing character: There is no ‚ in font ptmb7t!
 Missing character: There is no Ä in font ptmb7t!
 Missing character: There is no ô in font ptmb7t!
@@ -147,101 +159,117 @@ Missing character: There is no ‚ in font ptmr7t!
 Missing character: There is no Ä in font ptmr7t!
 Missing character: There is no ô in font ptmr7t!
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 41.
+(Font)              <7> on input line 42.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 41.
+(Font)              <5> on input line 42.
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
-] (./Real-Time_Scheduling_Algorithms_And_Battery.bbl
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6971824
-l.30 ....org/stamp/stamp.jsp?tp=&arnumber=6971824}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+]
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+[]\OT1/ptm/m/n/10 With the re-cent ar-rival of portable sys-tems and
+ []
 
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6852003
-l.48 ....org/stamp/stamp.jsp?tp=&arnumber=6852003}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6864009
-l.56 ....org/stamp/stamp.jsp?tp=&arnumber=6864009}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+Underfull \hbox (badness 5787) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 com-mu-ni-ca-tions, the en-ergy con-sump-tion has been a
+ []
 
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6849266
-l.81 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
+Underfull \hbox (badness 1946) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 to han-dle en-ergy con portable com-put-ers, which al-low
+ []
+
+
+Underfull \hbox (badness 5147) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 (shut-down) the com-puter af-ter de-tect-ing long pe-ri-ods
+ []
+
+
+Underfull \hbox (badness 1509) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 of in-ac-tiv-ity. In this case the com-puter changes to an
+ []
+
+
+Underfull \hbox (badness 1377) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 re-duces the en-ergy con-sump-tion con-sid-er-ably. This type
+ []
+
+
+Underfull \hbox (badness 3281) in paragraph at lines 60--62
+\OT1/ptm/m/n/10 com-pu-ta-tions to dif-fer-ent speeds [[]]. The ca-pac-ity of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 60--62
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
+
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 68.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 68.
+
+Overfull \hbox (18.73476pt too wide) in paragraph at lines 68--77
+[][] 
+ []
+
+Missing character: There is no ‚ in font ptmrc7t!
+Missing character: There is no Ä in font ptmrc7t!
+Missing character: There is no ú in font ptmrc7t!
+Missing character: There is no ‚ in font ptmrc7t!
+Missing character: There is no Ä in font ptmrc7t!
+Missing character: There is no ù in font ptmrc7t!
+! Undefined control sequence.
+<recently read> \multirow 
+                          
+l.85 \multirow
+              {Workload} & \multicolumn{7}{c|}{Power (\% of total)}  & \mult...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Undefined control sequence.
+l.85 ...n{7}{c|}{Power (\% of total)}  & \multirow
+                                                  {\begin{tabular}[c]{@{}}Ba...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Missing # inserted in alignment preamble.
+<to be read again> 
+                   \cr 
+l.85 ...tal)}  & \multirow{\begin{tabular}[c]{@{}}
+                                                  Battery life\\(hours)\end{...
+There should be exactly one # between &'s, when an
+\halign or \valign is being set up. In this case you had
+none, so I've put one in; maybe that will work.
+
+
+Overfull \hbox (65.70183pt too wide) in paragraph at lines 83--93
+[][] 
+ []
+
+Missing character: There is no ‚ in font ptmrc7t!
+Missing character: There is no Ä in font ptmrc7t!
+Missing character: There is no ú in font ptmrc7t!
+Missing character: There is no ‚ in font ptmrc7t!
+Missing character: There is no Ä in font ptmrc7t!
+Missing character: There is no ù in font ptmrc7t!
+(./Real-Time_Scheduling_Algorithms_And_Battery.bbl
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=5443304
-l.90 ....org/stamp/stamp.jsp?tp=&arnumber=5443304}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6881412
-l.106 ...org/stamp/stamp.jsp?tp=&arnumber=6881412}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=4086301
-l.114 ...org/stamp/stamp.jsp?tp=&arnumber=4086301}
-                                                  
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
-
-! Misplaced alignment tab character &.
-<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
-                                                  arnumber=6524965
-l.122 ...org/stamp/stamp.jsp?tp=&arnumber=6524965}
+l.30 ....org/stamp/stamp.jsp?tp=&arnumber=5443304}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -253,7 +281,92 @@ might try typing `S' now just to see what is salvageable.
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=1420171
-l.130 ...org/stamp/stamp.jsp?tp=&arnumber=1420171}
+l.38 ....org/stamp/stamp.jsp?tp=&arnumber=1420171}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+[2]
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6971824
+l.69 ....org/stamp/stamp.jsp?tp=&arnumber=6971824}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6849266
+l.77 ....org/stamp/stamp.jsp?tp=&arnumber=6849266}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=4086301
+l.93 ....org/stamp/stamp.jsp?tp=&arnumber=4086301}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6524965
+l.101 ...org/stamp/stamp.jsp?tp=&arnumber=6524965}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6881412
+l.109 ...org/stamp/stamp.jsp?tp=&arnumber=6881412}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6852003
+l.118 ...org/stamp/stamp.jsp?tp=&arnumber=6852003}
+                                                  
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+<argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
+                                                  arnumber=6864009
+l.135 ...org/stamp/stamp.jsp?tp=&arnumber=6864009}
                                                   
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -274,27 +387,27 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[2
+[3
 
 ] (./Real-Time_Scheduling_Algorithms_And_Battery.aux) ) 
 Here is how much of TeX's memory you used:
- 923 strings out of 493607
- 16425 string characters out of 3149945
- 71904 words of memory out of 3500000
- 4303 multiletter control sequences out of 15000+200000
- 34143 words of font info for 63 fonts, out of 3000000 for 9000
+ 942 strings out of 493607
+ 16617 string characters out of 3149945
+ 77904 words of memory out of 3500000
+ 4315 multiletter control sequences out of 15000+200000
+ 37690 words of font info for 71 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 26i,8n,19p,1063b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 26i,13n,19p,1064b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf/fonts/
 enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pf
 b></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/ty
 pe1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (2 pages, 681
-04 bytes).
+Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (3 pages, 760
+39 bytes).
 PDF statistics:
- 32 PDF objects out of 1000 (max. 8388607)
- 22 compressed objects within 1 object stream
+ 35 PDF objects out of 1000 (max. 8388607)
+ 24 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

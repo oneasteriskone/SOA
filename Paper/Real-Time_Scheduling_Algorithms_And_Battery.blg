@@ -1,56 +1,57 @@
 This is BibTeX, Version 0.99d (TeX Live 2012/TeX Live for SUSE Linux)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: Real-Time_Scheduling_Algorithms_And_Battery.aux
-The style file: IEEEtran.bst
+The style file: IEEEtranS.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Real-Time_Scheduling_Algorithms_And_Battery.bib
--- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- IEEEtranS.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+** Sorting version - not for normal IEEE work.
 
 Done.
-You've used 13 entries,
-            4039 wiz_defined-function locations,
-            910 strings with 10619 characters,
-and the built_in function-call counts, 11138 in all, are:
-= -- 913
-> -- 285
-< -- 99
-+ -- 149
-- -- 46
-* -- 577
-:= -- 1717
-add.period$ -- 26
-call.type$ -- 13
-change.case$ -- 13
-chr.to.int$ -- 264
-cite$ -- 13
-duplicate$ -- 751
-empty$ -- 804
-format.name$ -- 59
-if$ -- 2543
+You've used 14 entries,
+            4498 wiz_defined-function locations,
+            995 strings with 11537 characters,
+and the built_in function-call counts, 14149 in all, are:
+= -- 1275
+> -- 414
+< -- 111
++ -- 208
+- -- 96
+* -- 762
+:= -- 2174
+add.period$ -- 28
+call.type$ -- 14
+change.case$ -- 90
+chr.to.int$ -- 294
+cite$ -- 14
+duplicate$ -- 849
+empty$ -- 936
+format.name$ -- 110
+if$ -- 3167
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 109
-newline$ -- 88
-num.names$ -- 13
-pop$ -- 255
+int.to.str$ -- 14
+missing$ -- 119
+newline$ -- 91
+num.names$ -- 28
+pop$ -- 326
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 76
 quote$ -- 2
-skip$ -- 823
+skip$ -- 1006
 stack$ -- 0
-substring$ -- 628
-swap$ -- 668
-text.length$ -- 11
+substring$ -- 772
+swap$ -- 730
+text.length$ -- 13
 text.prefix$ -- 0
-top$ -- 5
-type$ -- 13
+top$ -- 6
+type$ -- 154
 warning$ -- 0
-while$ -- 46
-width$ -- 15
-write$ -- 176
+while$ -- 67
+width$ -- 16
+write$ -- 186

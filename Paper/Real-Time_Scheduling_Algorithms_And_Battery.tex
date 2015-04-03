@@ -33,12 +33,30 @@ The University of Michigan created a paper on Real-Time Dynamic Voltage Scaling 
 The battery lifetime is an important factor in assessing the user’s satisfaction on a mobile consumer electronic product. In recent years, the real-time systems have been integrated to a wide range of applications. Due to its complexity this type of systems they provide high reliability, with the right results and they are predictable and since they need to meet a deadline, it is always on time, helping to minimize the battery consumption.
 In the mobile devices, the greatest obstacle is the battery lifetime, which restricts the system function to a limite period of time. 
 Our investigation pretends take advantage of the new technologies and scheduling algorithms to manage the energy in mobile systems where the multiprocessor is capable of operation in different voltage levels which would implicate different level of energy consumption.
+To demonstrate that this systems operate with this restrictions, we will prove that every task of critical time that are part of the system will deliver results in the appropriate time, with the expected outcome, in a predictable way and without failures. 
+In order to resolve this problem we will develop a new algorithm, with new planification methods, design tools and real-time software validation systems.
+
+The specific objectives of this investigation are:
+\begin{itemize}
+\item Propose a novel solution to the planification of dynamic tasks in mobile devices and minimize the energy consumption of the total amount of tasks on the system.
+\item Monitor the battery capacity dinamically, the energy consumption on different components of the system and the frequency of when the battery gets recharged.
+\item Develop new models and algorithms in real-time systems with the energy consumption and fault tolerance restrictions.
+\end{itemize}
+
 
 This paper focuses on saving energy by modifying the OS real-time shedule and how it can be implemented securely and efficiently. 
 Section 2 provides a more detailed background about the challenges with real time scheduling and their impact on the devices' battery life. Section 3 discusses about the mobile devices and power management. Section 4 explains the scheduling algorithm to manage better the battery consumption on mobile devices. Sections 5 summarizes related work and Section 6 concludes.
 
-\section{Background}
 
+
+\section{Background}
+\subsection{Background of real-time systems}
+The greatest objective of real-time systems is to meet on time their activities to satisfy the requirements of their application. So the design of those systems should be capable of analyzing the characteristics of the real-time tasks and extract their requirements to have the system ensure schedulability, which means, meeting the deadlines in all the tasks in its execution.\\
+A real-time application is compose by a number of concurrent tasks that cooperate among themselves.  This tasks are activate  on regular and irregular intervals and they have to complete their execution according to a deadline. On each activation, the task completes a computation, and interacts with an external environment. According to the real-time requirements, a task must be: 1) Critical: if not meeting a timed requirement will cause a failure because of its consequences on the system, 2) Uncritical: It is possible to tolerate the failure to meet the deadline of a timed requirement. Some of the attributes of a real-time task are: a) maximum time of computation which is given by the implementation, b) period or frequency of the run and c) the response time, which is defined by the application attributes. Therefore, the tasks can be: periodic: that are executed with a fixed or variable periodicity and aperiodic: which are run in response to an event that occur on the system at irregular intervals
+ 
+ \subsection{Background of mobile devices with energy management}
+ 
+ 
 \section{Scheduling algorithm}
 
 \section{Analysis}

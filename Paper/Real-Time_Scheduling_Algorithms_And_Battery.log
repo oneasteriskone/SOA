@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  29 MAR 2015 10:31
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/TeX Live for SUSE Linux) (format=pdflatex 2014.3.29)  3 APR 2015 01:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -143,7 +143,17 @@ LaTeX Font Info:    ... okay on input line 5.
 Missing character: There is no â in font ptmb7t!
 Missing character: There is no € in font ptmb7t!
 Missing character: There is no ™ in font ptmb7t!
-(./Real-Time_Scheduling_Algorithms_And_Battery.bbl
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 41.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 41.
+[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+
+
+] (./Real-Time_Scheduling_Algorithms_And_Battery.bbl
 ! Misplaced alignment tab character &.
 <argument> ...xplore.ieee.org/stamp/stamp.jsp?tp=&
                                                   arnumber=6971824
@@ -264,31 +274,27 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
+[2
 
-
-] (./Real-Time_Scheduling_Algorithms_And_Battery.aux)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+] (./Real-Time_Scheduling_Algorithms_And_Battery.aux) ) 
 Here is how much of TeX's memory you used:
- 920 strings out of 493607
- 16390 string characters out of 3149945
+ 923 strings out of 493607
+ 16425 string characters out of 3149945
  71904 words of memory out of 3500000
- 4301 multiletter control sequences out of 15000+200000
- 33007 words of font info for 62 fonts, out of 3000000 for 9000
+ 4303 multiletter control sequences out of 15000+200000
+ 34143 words of font info for 63 fonts, out of 3000000 for 9000
  831 hyphenation exceptions out of 8191
- 26i,8n,19p,847b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf/fonts/enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/u
-rw/times/utmb8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmbi8a.pfb></usr/s
-hare/texmf/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf/fonts/type1/urw/t
-imes/utmri8a.pfb>
-Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (1 page, 5728
-0 bytes).
+ 26i,8n,19p,1063b,295s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texmf/fonts/
+enc/dvips/base/8r.enc}</usr/share/texmf/fonts/type1/public/amsfonts/cm/cmsy7.pf
+b></usr/share/texmf/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf/fonts/ty
+pe1/urw/times/utmbi8a.pfb></usr/share/texmf/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texmf/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (2 pages, 681
+04 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
- 17 compressed objects within 1 object stream
+ 32 PDF objects out of 1000 (max. 8388607)
+ 22 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -2,6 +2,9 @@
 
 \usepackage{natbib}
 \usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{fixltx2e}
+\usepackage{amssymb}
 
 \title{Real-Time Scheduling algorithms and battery consumption for mobile devices}
 
@@ -77,24 +80,68 @@ PMD      & -                        & 60                         & 180          
 \begin{table}[h]
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
-\multirow{Workload} & \multicolumn{7}{c|}{Power (\% of total)}  & \multirow{\begin{tabular}[c]{@{}}Battery life\\(hours)\end{tabular}}\\ \cline{2-8}
-                          & GSM & CPU & RAM & Graphics & LCD & Backlight & Rest &    \\ \hline
-Suspend                   & 45  & 19  & 4   & 13       & 1   & 0         & 19   & 49 \\ \hline
-Casual                    & 47  & 16  & 4   & 12       & 2   & 3         & 16   & 40 \\ \hline
-Regular                   & 44  & 14  & 4   & 14       & 4   & 7         & 13   & 27 \\ \hline
-Business                  & 51  & 11  & 3   & 11       & 4   & 11        & 10   & 21 \\ \hline
-PMD                       & 31  & 19  & 5   & 17       & 6   & 6         & 14   & 29 \\ \hline
+\multirow{2}{*}{Workload} & \multicolumn{7}{c|}{Power (\% of total)}            & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Battery life\\  {[}hours{]}\end{tabular}} \\ \cline{2-8}
+                          & GSM & CPU & RAM & Graphics & LCD & Backlight & Rest &                                                                                      \\ \hline
+Suspend                   & 45  & 19  & 4   & 13       & 1   & 0         & 19   & 49                                                                                   \\ \hline
+Casual                    & 47  & 16  & 4   & 12       & 2   & 3         & 16   & 40                                                                                   \\ \hline
+Regular                   & 44  & 14  & 4   & 14       & 4   & 7         & 13   & 27                                                                                   \\ \hline
+Business                  & 51  & 11  & 3   & 11       & 4   & 11        & 10   & 21                                                                                   \\ \hline
+PMD                       & 31  & 19  & 5   & 17       & 6   & 6         & 14   & 29                                                                                   \\ \hline
 \end{tabular}
-\caption {Daily energy use and battery life under a number of usage patterns. Taken from  A. Carroll and G. Heiser, ``An analysis of power consumption in a smartphone'', in In Proceedings of the 2010 USENIX conference on USENIX annual technical conference, 2010.}
 \end{table}
 
 With this example is possible to observe when managing efficiently the energy through the system components we can achieve a reduction on the voltage consumption.
  
 Power management (PM) schemes from the operating system level is a promising method to manage the battery lifetime because the OS is aware of the battery discharging status, the application energy requests as well as the device power states \cite{PADM02}
  
-\section{Scheduling algorithm}
+\subsection{Scheduling algorithms}
+\subsubsection{Dynamic Voltage Scheduling in Real-time systems}
+ Dynamic Voltage Scheduling in Real-time systems uses the EDF (Earliest Deadline First) algorithm. For example, on \cite{PADM01} the lookahead RT-DVS EDF algorithm's goal is to defer work beyond the earliest deadline in the system to operate at a low frequency now. The time is allocated in the schedule for the worst-case execution of each task, starting with the task with the latest deadline. The algorithm finds a lower operating frequency. Continuing this method of trying to defer work beyond the next deadline in the system ultimately results in the execution trace.\\
+The actual algorithm is as follows:
 
-In our investigation, first, we want take as a baseline the CPU scheduler framework proposed in \ref{ALMA01}. First we have to extend the RCSC not just to plug policies in runtime, we want it to extend it to enable or disable any policy according to the set of rules that the scheduler will create always keeping the user experience and the battery life as the centre of the algorithm. To create those rules, we will take the data collected from the user, the usage of the devices and some configurations that the user can set, to create a set of policies and then define the rules that will trigger the switching between policies.
+\noindent\rule{8cm}{0.4pt}
+
+select\_frequency(x):\\
+	use lowest freq  f$\_{i}$ $\in$ \{f$\_{1}$ ,..., f$\_{m}$ | f$\_{1}$ < ... < f$\_{m}$\}\\
+	such that \$x $\leq$ f$\_{i}$ / f$\_{m}$\\
+	
+upon task\_release(T$\_{i}$):\\
+	set c\_left$\_{i}$ = C$\_{i}$;\\
+	defer();\\
+
+during task\_execution(T$\_{i}$):\\
+	decrement c\_left$\_{i}$;\\
+	
+defer():\\
+	set U=C$\_{1}$/P$\_{1}$ + ... C$\_{n}$ + P$\_{n}$;\\
+	set s=0;\\
+	for i=1 to n, T$\_{i}$ $\in$ \{T$\_{1}$ ,..., T$\_{n}$ | P$\_{1}$ $\leq$ ... $\leq$ P$\_{n}$ \} \\
+		if ( c left$\_{i}$  < k )\\
+			set d$\_{i}$  = c\_left$\_{i}$;\\
+			set k = k - c\_left$\_{i}$;\\
+		else\\
+			set d$\_{i}$  = k;\\
+			set k = 0;\\
+		
+\noindent\rule{8cm}{0.4pt}
+
+There are other works related to this such as the one proposed by C.M.Krishna and Y.H.Lee \cite{KRISH01} which it is also based on EDF (Earliest Deadline First), there is a processing phase that takes care of looking for a voltage nominal level for the tasks, all tasks' instances start their execution. This phase is based on the tasks that have a maximum computation time. This algorithm has a dynamic phase too, when the tasks need less time time of maximum computation, it looks to assign the execution time that is not assigned to other tasks (which decrements its voltage/energy consumption). 
+
+\subsubsection{Completely Fair Scheduler and Energy-based Fair Queuing scheduling algorithm}
+
+Android uses the same scheduler as Linux, known as Completely Fair Scheduler (CFS) \cite{ANDR01}. CFS provides balance between tasks assigned to a processor. For that, it uses a red-black binary tree,  with self-balancing capabilities.  As the tree is being used for scheduling purposes, the balance factor is the amount of time provided to a given task. This
+factor has been named virtual runtime. The higher the task’s virtual runtime value, the lower is the need for the processor.\\
+In terms of execution, the algorithm works as follows: the tasks with lower virtual runtime are placed on the left side of the tree, and the tasks with the higher virtual runtime are placed on the right. This means that the tasks with the highest need for the processor will always be  stored on the left side of the tree. Then, the scheduler picks the left-most
+node of the tree to be scheduled. Each task is responsible for accounting the CPU time taken during execution and adding this value to the previous virtual runtime value. Although CFS tries to optimise the time a task is waiting for CPU time, this effort is not enough as it is not capable of providing guaranteed response times. \\
+
+The CFS code is used as base for the The EFQ (Energy-based Fair Queuing) algorithm which assessed from two aspects, energy management and real-time scheduling \cite{WEI01}. 
+It is advised that energy should be globally managed as the first-class resource in the system  the corresponding PM (Power Management) schemes are called energy centric PM schemes. An energy-centric PM scheme can ensure a target battery lifetime for user-specified applications by restricting the battery discharging rate over the time and proportionally allocating energy among different applications.  It relies on the cooperation of the energy estimation module, energy accounting module, energy allocation module and energy scheduling module to achieve advanced energy objectives such as lifetime guarantee.\\
+
+
+\section{Proposed Scheduling algorithm}
+
+
+In our investigation, first, we want take as a baseline the CPU scheduler framework proposed in \cite{ALMA01}. First we have to extend the RCSC not just to plug policies in runtime, we want it to extend it to enable or disable any policy according to the set of rules that the scheduler will create always keeping the user experience and the battery life as the centre of the algorithm. To create those rules, we will take the data collected from the user, the usage of the devices and some configurations that the user can set, to create a set of policies and then define the rules that will trigger the switching between policies.
 
 \section{Analysis}
 
@@ -105,6 +152,7 @@ In our investigation, first, we want take as a baseline the CPU scheduler framew
 
 \nocite{*}
 
+\setcitestyle{authoryear}
 \bibliographystyle{IEEEtranS} %sorted by Author's Name
 \bibliography{Real-Time_Scheduling_Algorithms_And_Battery}
 

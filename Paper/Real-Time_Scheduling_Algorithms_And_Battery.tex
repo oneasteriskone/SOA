@@ -51,7 +51,7 @@ Section 2 provides a more detailed background about the challenges with real tim
 \subsection{Background of real-time systems}
 The greatest objective of real-time systems is to meet on time their activities to satisfy the requirements of their application. So the design of those systems should be capable of analyse the characteristics of the real-time tasks and extract their requirements to have the system ensure schedulability, which means, meeting the deadlines in all the tasks in its execution.\\
 A real-time application is compose by a number of concurrent tasks that cooperate among themselves.  This tasks are activate  on regular and irregular intervals and they have to complete their execution according to a deadline. On each activation, the task completes a computation, and interacts with an external environment. According to the real-time requirements, a task must be: 1) Critical: if not meeting a timed requirement will cause a failure because of its consequences on the system, 2) Uncritical: It is possible to tolerate the failure to meet the deadline of a timed requirement. Some of the attributes of a real-time task are: a) maximum time of computation which is given by the implementation, b) period or frequency of the run and c) the response time, which is defined by the application attributes. Therefore, the tasks can be: periodic, that are executed with a fixed or variable periodicity, and aperiodic, which are run in response to an event that occur on the system at irregular intervals. \\
-Naturally these tasks are evaluated based on the algorithm that is being used in order to administer the resources within the system,  for such things it's important to consider the evaluation methods required, for example, the comparison between RM (Rate-Monotimic) and EDF (Earliest Deadline First) algorithms.\cite{BECKER01} 
+Naturally these tasks are evaluated based on the algorithm that is being used in order to administer the resources within the system,  for such studies it's important to consider the evaluation methods required, for example, the comparison between RM (Rate-Monotimic) and EDF (Earliest Deadline First) algorithms.\cite{BECKER01} 
 The RM algorithm uses a static-priority method, where the shorter the cycle duration is the higher the priority it is, versus the EDF algorithm where the lower the deadline the higher priority it has. 
 In order to contrast both algorithms a set of tasks is used in order to evaluate their overhead, for example the algorithm run against 2-4-8 tasks then the CPU frequency, CPU usage, Energy consumption and CPU cycles are compared between one and the other. 
 The result provided by this \cite{BECKER01} show that each algorithm has a different purpose, the RM algorithm shows a bigger overhead but a better performance than the EDF which provides a better energy consumption than RM. 
@@ -96,7 +96,9 @@ PMD                       & 31  & 19  & 5   & 17       & 6   & 6         & 14   
 
 With this example is possible to observe when managing efficiently the energy through the system components we can achieve a reduction on the voltage consumption.
  
-Power management (PM) schemes from the operating system level is a promising method to manage the battery lifetime because the OS is aware of the battery discharging status, the application energy requests as well as the device power states \cite{PADM02}
+Power management (PM) schemes from the operating system level is a promising method to manage the battery lifetime because the OS is aware of the battery discharging status, the application energy requests as well as the device power states \cite{PADM02}.
+ 
+Other important section is analysis of the GPU algorithms in used in order to save energy, as stated in \cite{ARIUN01}, where they are using different job size in order to reduce the amount of energy being consumed by each algorithm, the larger jobs that are  processed by the GPU assist in processing these at the same time than smaller tasks, due to the fact that the GPU is an throughput-based machine. This phenomenon occurs because the threshold of all computational resources of the GPU are used and does not enhance the performance of the GPU. \cite{ARIUN01}
  
 \subsection{Scheduling algorithms}
 \subsubsection{Dynamic Voltage Scheduling in Real-time systems}
@@ -143,7 +145,7 @@ It is advised that energy should be globally managed as the first-class resource
 
 \subsection{Rate-monotonic algorithm}
 
-This algorithm is used in the investigation proposed by \cite{BECKER01}, this algorithm consists of calculating the amount of cycles required to complete a task, which is then evaluated and a priority is assigned after that, where the task with the lowest cycle has more priority than the rest. The algorithm is generally preemptive and guarantees response times due to it's behavior while assigning the resources. 
+This algorithm is used in the investigation proposed by \cite{BECKER01}, this algorithm consists of calculating the amount of cycles required to complete a task, which is then evaluated and a static-priority is assigned after that, where the task with the lowest cycle has more priority than the rest. The algorithm is generally preemptive and guarantees response times due to it's behavior while assigning the resources. 
 This algorithm is easy to implement a proposes a deterministic model which enables this algorithm to predictable. This algorithm creates a time-table in order to track the processor cycles, however this table creates a big memory overhead, since it can grow exponentially due to the amount of tasks required. Which leads to a bigger use of power due to the extensive amount of memory that is uses, however it excels at running tasks effectively. 
 
 
@@ -155,6 +157,10 @@ In our investigation, first, we want take as a baseline the CPU scheduler framew
 \section{Analysis}
 
 \section{Related Work}
+
+There are multiple studies in the energy efficiency category, such as the big.LITTLE mobile processor \cite{KISO01}, which is based of the architecture models for AMP ( Asymmetric MultiProcessing ) and HMP (Heterogeneous MultiProcessing), where this processor is offered as an alternative to the HMP, since two kinds of processors are used in this model, one processor is low power consuming and low throughput, this will be the LITTLE processor, and the big processor is used for high performance/high energy consuming tasks, that require more resources in order to complete the task.
+This processor makes use of the CFS (Completely Fair Scheduler) which was introduce in Linux 2.6.23, this is used to run tasks in parallel with with precise weight speeds. 
+big.LITTLE makes use of the DVFS (Dynamic Voltage and Frequency Scaling), this is a simple algorithm that is in charge of controlling the voltage and frequency, this changes based on the requirements that the processor needs at an specific time, here is where two specific concepts are introduced overvolting, that is when the processor needs more voltage and frequency and the opposite will be undervolting, when voltage and frequency are lowered. This is mostly used to control the power saving of mobile devices. 
 
 \section{Conclusion}
 

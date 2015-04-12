@@ -413,6 +413,9 @@ void drawCars() {
 
 			if(spaceList[i].usable == 1 && spaceList[i].busy == 1){
 				char* carName;
+
+                printf("%s\n", carNames[spaceList[i].model]);
+
 				switch(spaceList[i].direction) {
 
 					case 0:
@@ -472,7 +475,7 @@ int main(){
     SDL_EnableUNICODE(1);
 
     //Load image
-    threadville = SDL_LoadBMP("images/threadville.bmp");
+    //threadville = SDL_LoadBMP("images/threadville.bmp");
 
     //Apply image to screen
     SDL_BlitSurface(threadville, NULL, screen, NULL);

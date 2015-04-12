@@ -5,6 +5,8 @@
 \usepackage{mathtools}
 \usepackage{fixltx2e}
 \usepackage{amssymb}
+\usepackage{graphics}
+\usepackage{balance}
 
 \title{Real-Time Scheduling algorithms and battery consumption for mobile devices}
 
@@ -67,6 +69,7 @@ The result provided by this \cite{BECKER01} show that each algorithm has a diffe
  For example, in recent studies \cite{CarrollAnalysis} it's being verified that for a smartphone are produced the following percentages on energy consumption. Where suspend represents the baseline case of a device which is on standby, without placing or receiving calls or messages. The casual pattern represents a user who uses the phone for a small number of voice calls and text messages each day. Regular represents a commuter with extended time of listening to music or podcasts, combined with more lengthy or frequent phone calls, messaging and a bit of emailing. The business pattern features extended talking and email use together with some web browsing. Finally, the PMD (portable media device) case represents extensive media playback:
 
 \begin{table}[h]
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|l|c|c|c|c|c|c|}
 \hline
 Workload & \multicolumn{1}{l|}{SMS} & \multicolumn{1}{l|}{Video} & \multicolumn{1}{l|}{Audio} & \multicolumn{1}{l|}{Phone call} & \multicolumn{1}{l|}{Web browsing} & \multicolumn{1}{l|}{Email} \\ \hline
@@ -75,13 +78,15 @@ Casual   & 15                       & -                          & -            
 Regular  & 30                       & -                          & 60                         & 30                              & 15                                & 15                         \\ \hline
 Business & 30                       & -                          & -                          & 60                              & 30                                & 30                         \\ \hline
 PMD      & -                        & 60                         & 180                        & -                               & \multicolumn{1}{l|}{-}            & \multicolumn{1}{l|}{-}     \\ \hline
-\end{tabular}
-\caption {Usage patterns, showing total time for each activity in minutes. Taken from  A. Carroll and G. Heiser, ``An analysis of power consumption in a smartphone'', in In Proceedings of the 2010 USENIX conference on USENIX annual technical conference, 2010.}
+\end{tabular}%
+}
+\caption {Usage patterns, showing total time for each activity in minutes \cite{CarrollAnalysis}.}
 \end{table}
   
- % Please add the following required packages to your document preamble:
+
 
 \begin{table}[h]
+\resizebox{\columnwidth}{!}{%
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|}
 \hline
 \multirow{2}{*}{Workload} & \multicolumn{7}{c|}{Power (\% of total)}            & \multirow{2}{*}{\begin{tabular}[c]{@{}c@{}}Battery life\\  {[}hours{]}\end{tabular}} \\ \cline{2-8}
@@ -91,7 +96,9 @@ Casual                    & 47  & 16  & 4   & 12       & 2   & 3         & 16   
 Regular                   & 44  & 14  & 4   & 14       & 4   & 7         & 13   & 27                                                                                   \\ \hline
 Business                  & 51  & 11  & 3   & 11       & 4   & 11        & 10   & 21                                                                                   \\ \hline
 PMD                       & 31  & 19  & 5   & 17       & 6   & 6         & 14   & 29                                                                                   \\ \hline
-\end{tabular}
+\end{tabular}%
+}
+\caption{Daily energy use and battery life under a number of usage patterns  \cite{CarrollAnalysis}.}
 \end{table}
 
 With this example is possible to observe when managing efficiently the energy through the system components we can achieve a reduction on the voltage consumption.
@@ -145,10 +152,45 @@ This algorithm is easy to implement a proposes a deterministic model which enabl
 
 \section{Proposed Scheduling algorithm}
 
+\begin{figure*}[ht]
+\centering
+  \includegraphics[width=\textwidth,height=4cm]{RSCS}
+  \caption{Architecture of RCSC framework \cite{ALMA01}}
+  \label{fig:RCSC}
+\end{figure*}
 
 In our investigation, first, we want take as a baseline the CPU scheduler framework proposed in \cite{ALMA01}. First we have to extend the RCSC (Real-Time CPU Scheduler Customization) not just to plug policies in runtime, we want it to extend it to enable or disable any policy according to the set of rules that the scheduler will create always keeping the user experience and the battery life as the centre of the algorithm. To create those rules, we will take the data collected from the user, the usage of the devices and some configurations that the user can set, to create a set of policies and then define the rules that will trigger the switching between policies.
 
-\section{Analysis}
+As shown on the Figure~\ref{fig:RCSC} the RCSC architecture will  manage the scheduling policies using the CPU scheduler. Important components of the RCSC architecture include:
+\begin{itemize} 
+\item CPU scheduler
+\item Scheduling classes
+\item Scheduling policies
+\item The proc file system. 
+\end{itemize}
+
+Some of the scheduling policies for example are the ones that the existing CFS class encapsulates for example NORMAL, BATCH and IDLE \cite{SchLnx}. 
+As such, a new scheduling class can be used to encapsulate new scheduling policy(s). The framework will start scanning for available pluggable scheduling policies  and classes inside a directory of scheduling policies. Each time new scheduling policies and classes are added, the framework must be reinitialized. Scheduling polices is another component of RCSC framework. \\
+The policies are the scheduling algorithms which are used to implement the scheduling method i.e. FIFO (First In Firt Out), RR (Round Robin) and SJF (Shortest Job First). They can be dynamically switched from user space, plugged and unplugged to the framework at runtime.  \cite{ALMA01} \\
+The proc file system will facilitate the switching between the policies, plugging and unplugging of classes and policies. The framework will maintain a proc file for each policy inside the folder and a proc file for the configuration of the framework itself. When the scheduler is called to decide the CPU control of the next process, the framework will load the specified user scheduling policy to be used by the core scheduler.\\
+Since the policies are pluggable during the execution time then the the mobile users or the operating system itself could adapt to the changing requirement.\\
+
+It will record the below metrics from the scheduling algoritm:
+\begin{itemize}
+\item Arrival time
+\item Start time
+\item Completion time
+\item Computation time
+\item Deadlines met
+\end{itemize}
+
+The policies will be exchanging among the below scheduling algoritms
+\begin{itemize}
+\item FIFO: Processes assigned to the CPU in the order that was requested
+\item Shortest Job First: Once the CPU is available, it will allocate the process that has the smallest CPU burst. So, once the process gets to the ready queue the CPU burst will be lower than the current running process 
+\item Round-Robin: Each process gets a limited amound of CPU time to execute. If the CPU burst of the process is the same or lower then it will release the CPU. Otherwise, the scheduler will preempt the running process after the limited time and will put it back on the ready queue and dispatch another process from the ready queue.
+\end{itemize}
+
 
 \section{Related Work}
 
@@ -157,7 +199,8 @@ This processor makes use of the CFS (Completely Fair Scheduler) which was introd
 big.LITTLE makes use of the DVFS (Dynamic Voltage and Frequency Scaling), this is a simple algorithm that is in charge of controlling the voltage and frequency, this changes based on the requirements that the processor needs at an specific time, here is where two specific concepts are introduced overvolting, that is when the processor needs more voltage and frequency and the opposite will be undervolting, when voltage and frequency are lowered. This is mostly used to control the power saving of mobile devices. 
 
 \section{Conclusion}
-
+After this, for real time mobile operating systems we look at various structures, algorithms and standards. We reviewed different algorithms that had been studied to manage battery consumption efficiently  in previous papers but, after reviewing the different algorithms we decided to use the RCSC framework and manage the CPU which is the feature that impacts more the performance and the mobile devices energy consumption according to the according to the analysis discussed previously. \\
+In this paper, we propose the use of the RCSC framework along with different scheduling policies. RCSC architecture provides pluggable scheduling policies and important feature to customize the mobile operating system to improve the efficiency and energy saving
 
 \nocite{*}
 

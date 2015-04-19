@@ -14,44 +14,44 @@ Database file #1: Real-Time_Scheduling_Algorithms_And_Battery.bib
 ** Sorting version - not for normal IEEE work.
 
 Done.
-You've used 13 entries,
+You've used 16 entries,
             4498 wiz_defined-function locations,
-            985 strings with 11138 characters,
-and the built_in function-call counts, 12309 in all, are:
-= -- 1115
-> -- 356
-< -- 89
-+ -- 175
+            1002 strings with 11322 characters,
+and the built_in function-call counts, 13641 in all, are:
+= -- 1231
+> -- 367
+< -- 97
++ -- 182
 - -- 84
-* -- 660
-:= -- 1925
-add.period$ -- 26
-call.type$ -- 13
-change.case$ -- 81
-chr.to.int$ -- 234
-cite$ -- 13
-duplicate$ -- 750
-empty$ -- 826
+* -- 695
+:= -- 2144
+add.period$ -- 32
+call.type$ -- 16
+change.case$ -- 89
+chr.to.int$ -- 258
+cite$ -- 16
+duplicate$ -- 845
+empty$ -- 959
 format.name$ -- 97
-if$ -- 2741
+if$ -- 3039
 int.to.chr$ -- 0
-int.to.str$ -- 13
-missing$ -- 107
-newline$ -- 84
-num.names$ -- 26
-pop$ -- 296
+int.to.str$ -- 16
+missing$ -- 121
+newline$ -- 91
+num.names$ -- 32
+pop$ -- 346
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 74
 quote$ -- 2
-skip$ -- 878
+skip$ -- 989
 stack$ -- 0
-substring$ -- 625
-swap$ -- 620
+substring$ -- 691
+swap$ -- 668
 text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 6
-type$ -- 143
+type$ -- 170
 warning$ -- 0
-while$ -- 59
-width$ -- 15
-write$ -- 170
+while$ -- 65
+width$ -- 18
+write$ -- 189

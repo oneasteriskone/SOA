@@ -30,14 +30,6 @@ N.~Al-maweri A, K.~Samsudin~B, and F.~Rokhani~C, ``Runtime cpu scheduler
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=5443304}
 \BIBentrySTDinterwordspacing
 
-\bibitem{ALSA01}
-\BIBentryALTinterwordspacing
-W.~Alsalih, S.~Akl, and H.~Hassancin, ``Energy-aware task scheduling: towards
-  enabling mobile computing over manets,'' \emph{Parallel and Distributed
-  Processing Symposium}, pp. 1 -- 6, April 2005. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=1420171}
-\BIBentrySTDinterwordspacing
-
 \bibitem{BECKER01}
 \BIBentryALTinterwordspacing
 L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
@@ -51,14 +43,6 @@ L.~Becker, M.~Wehrmeister, and C.~Pereira, ``Power and performance tuning in
 A.~Carroll and G.~Heiser, ``An analysis of power consumption in a smartphone,''
   in \emph{In Proceedings of the 2010 USENIX conference on USENIX annual
   technical conference}, 2010.
-
-\bibitem{CHO01}
-\BIBentryALTinterwordspacing
-M.-H. Cho, J.-S. Lim, and C.-H. Lee, ``ertos : The low-power real-time
-  operating system for wearable computers,'' \emph{IEEE Transactions on
-  Consumer Electronics}, pp. 1015 -- 1019, May 2009. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=5156939}
-\BIBentrySTDinterwordspacing
 
 \bibitem{KRISH01}
 C.M.Krishna and Y.H.Lee, ``Rtas 99,'' \emph{Real-Time Applications Systems
@@ -82,6 +66,17 @@ C.~Maia, L.~Nogueira, and L.~M. Pinho, ``Evaluating android os for embedded
   \url{http://www.utdallas.edu/\~cxl137330/courses/fall13/RTS/papers/4a.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{MARGI01}
+C.~B. Margi, K.~Obraczka, and R.~Manduchi, ``Characterizing system level energy
+  consumption in mobile computing platforms,'' \emph{Wireless Networks,
+  Communications and Mobile Computing, 2005 International Conference}, pp. 1142
+  -- 1147 vol.2, 2005.
+
+\bibitem{AVI01}
+O.~of~Aviation~Research and D.~. Development~Washington, ``Real-time scheduling
+  analysis,'' \emph{National Technical Information Service (NTIS)}, pp. 10--21,
+  2005.
+
 \bibitem{PADM01}
 \BIBentryALTinterwordspacing
 P.~Padmanabhan and K.~G. Shin, ``Real-time dynamic voltage scaling for
@@ -98,13 +93,27 @@ S.~Padmanabhan, Ray, P.~Dasgupta, and P.~Chakrabarti, ``Formal verification of
   \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=4086301}
 \BIBentrySTDinterwordspacing
 
-\bibitem{POHS01}
+\bibitem{STAN01}
+J.~Stankovic, ``Real-time computing,'' \emph{BYTE, invited paper}, pp.
+  155--160, 1992.
+
+\bibitem{GITAM01}
 \BIBentryALTinterwordspacing
-P.-H. Tseng, P.-C. Hsiu, C.-C. Pan, and T.-W. Kuo, ``User-centric
-  energy-efficient scheduling on multi-core mobile devices,'' \emph{Design
-  Automation Conference (DAC)}, pp. 1 -- 6, June 2014. [Online]. Available:
-  \url{http://ieeexplore.ieee.org/stamp/stamp.jsp?tp=\&arnumber=6881412}
+G.~University. (2007) Scheduling algorithms. [Online]. Available:
+  \url{http://www.gitam.edu/eresource/comp/gvr\%28os\%29/5.3.htm}
 \BIBentrySTDinterwordspacing
+
+\bibitem{SchLnx}
+\BIBentryALTinterwordspacing
+M.~University, ``Scheduling in linux,'' \emph{Project CSCI 560}, 2010.
+  [Online]. Available:
+  \url{http://www.cs.montana.edu/\~chandrima.sarkar/AdvancedOS/CSCI560\_Proj\_main/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{MANISH}
+M.~Verma and P.~Marwedel, \emph{Advanced Memory Optimization Techniques for
+  Low-Power Embedded Processors}.\hskip 1em plus 0.5em minus 0.4em\relax
+  Dordrecht, The Netherlands: Springer, 2007.
 
 \bibitem{WEI01}
 \BIBentryALTinterwordspacing

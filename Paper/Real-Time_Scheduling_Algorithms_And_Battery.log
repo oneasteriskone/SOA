@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.7)  7 APR 2015 08:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2015.4.6)  19 APR 2015 10:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -205,25 +205,6 @@ Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(./Real-Time_Scheduling_Algorithms_And_Battery.aux)
-\openout1 = `Real-Time_Scheduling_Algorithms_And_Battery.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 17.
-LaTeX Font Info:    ... okay on input line 17.
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
@@ -245,21 +226,46 @@ Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count108
+))
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/balance.sty
+Package: balance 1999/02/23 4.3 (PWD)
+\oldvsize=\dimen136
+)
+(./Real-Time_Scheduling_Algorithms_And_Battery.aux)
+\openout1 = `Real-Time_Scheduling_Algorithms_And_Battery.aux'.
 
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+\Gin@req@height=\dimen137
+\Gin@req@width=\dimen138
+)
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count109
-\scratchdimen=\dimen136
+\scratchdimen=\dimen139
 \scratchbox=\box29
 \nofMPsegments=\count110
 \nofMParguments=\count111
 \everyMPshowfont=\toks21
 \MPscratchCnt=\count112
-\MPscratchDim=\dimen137
+\MPscratchDim=\dimen140
 \MPnumerator=\count113
 \makeMPintoPDFobject=\count114
 \everyMPtoPDFconversion=\toks22
-))) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+) (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 
@@ -307,15 +313,9 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-\Gin@req@height=\dimen138
-\Gin@req@width=\dimen139
-)
 Missing character: There is no â in font ptmb7t!
 Missing character: There is no € in font ptmb7t!
 Missing character: There is no ™ in font ptmb7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
 LaTeX Font Info:    Try loading font information for U+msa on input line 39.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -329,28 +329,64 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 
 ]
-Overfull \hbox (18.73476pt too wide) in paragraph at lines 70--79
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+[]\OT1/ptm/m/n/10 With the re-cent ar-rival of portable sys-tems and
  []
 
 
-Overfull \hbox (65.70183pt too wide) in paragraph at lines 85--95
-[][] 
+Underfull \hbox (badness 5787) in paragraph at lines 59--60
+\OT1/ptm/m/n/10 com-mu-ni-ca-tions, the en-ergy con-sump-tion has been a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 59--60
+
  []
 
 [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 111.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 115.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 111.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 115.
 Missing character: There is no â in font ptmr7t!
 Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
+
+<RSCS.png, id=14, 960.58875pt x 341.275pt>
+File: RSCS.png Graphic file (type png)
+ <use RSCS.png>
+Package pdftex.def Info: RSCS.png used on input line 154.
+(pdftex.def)             Requested size: 515.99858pt x 113.80838pt.
  [3]
-(./Real-Time_Scheduling_Algorithms_And_Battery.bbl)
+Underfull \hbox (badness 2828) in paragraph at lines 169--174
+\OT1/ptm/m/n/10 NOR-MAL, BATCH and IDLE [[]]. As such, a new
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--174
+
+ []
+
+[4 <./RSCS.png>] (./Real-Time_Scheduling_Algorithms_And_Battery.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 108--112
+[]\OT1/ptm/m/n/8 M. Uni-ver-sity, ``Schedul-ing in linux,''
+ []
+
+
+Underfull \hbox (badness 4518) in paragraph at lines 108--112
+\OT1/ptm/m/it/8 Project CSCI 560\OT1/ptm/m/n/8 , 2010. [On-line]. Avail-able:
+ []
+
+
+Overfull \hbox (27.8055pt too wide) in paragraph at lines 108--112
+\OT1/ptm/m/n/8 http://www.cs.montana.edu/[]chandrima.sarkar/AdvancedOS/CSCI560[
+]Proj[]main/ 
+ []
+
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -362,15 +398,15 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4] (./Real-Time_Scheduling_Algorithms_And_Battery.aux) ) 
+[5] (./Real-Time_Scheduling_Algorithms_And_Battery.aux) ) 
 Here is how much of TeX's memory you used:
- 3696 strings out of 495028
- 55928 string characters out of 6181498
- 127867 words of memory out of 5000000
- 6846 multiletter control sequences out of 15000+600000
+ 3725 strings out of 495028
+ 56385 string characters out of 6181498
+ 127149 words of memory out of 5000000
+ 6869 multiletter control sequences out of 15000+600000
  40666 words of font info for 85 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 51i,15n,27p,1068b,267s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 37i,16n,26p,1396b,288s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/te
 xmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1
 /public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
@@ -381,11 +417,11 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texlive/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type
 1/urw/times/utmri8a.pfb>
-Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (4 pages, 113
-682 bytes).
+Output written on Real-Time_Scheduling_Algorithms_And_Battery.pdf (5 pages, 187
+327 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
- 38 compressed objects within 1 object stream
+ 60 PDF objects out of 1000 (max. 8388607)
+ 41 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

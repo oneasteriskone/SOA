@@ -58,6 +58,7 @@ void printVehicle(struct vehicleInfo* vehicle)
 
 
 //TESTING
+//TODO: This functions need to be moved.
 
 void *carCreator(void* isAmbulance) {    
     printf("%s\n", "Creating car!");

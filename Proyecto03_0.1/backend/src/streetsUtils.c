@@ -75,3 +75,7 @@ struct streetSpaceInfo* loadStreetInfo(unsigned short* spaceLength)
     loadResistance(graph, ids, spaceLength);
     return graph;
 }
+
+struct streetSpaceInfo getCoordinates(int n){
+    // Get the x and y of a box. 
+}

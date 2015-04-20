@@ -9,7 +9,7 @@ unsigned short graphLength;
 struct vehicleInfo* cars[MAX_CARS];
 int amountOfCars;
 
-//testing
+////////////////////testing
 
 int quit = 0;
 SDL_Surface* threadville = NULL;
@@ -17,11 +17,6 @@ SDL_Surface* screen = NULL;
 SDL_Surface* carGUI = NULL;
 
 SDL_Event event;
-
-int carx = 0;
-int cary = 0;
-
-
 
 void *carCreator(void* isAmbulance);
 
@@ -46,8 +41,6 @@ void finish()
 {
     free(graph);
 }
-
-///
 
 int draw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y) {
   if(Surf_Dest == NULL || Surf_Src == NULL) {
@@ -92,12 +85,15 @@ int drawCars(){
     printf("Car # %d\n", i);
     printVehicle(cars[i]);
 
-
     draw(screen, SDL_LoadBMP("blueCarLeft.bmp"), cars[i]->currentx, cars[i]->currenty);
 
     i++;
   }
   return 0;
+}
+
+void MoveCar(struct vehicleInfo car){
+  //continue here -David
 }
 
 ///
@@ -118,44 +114,31 @@ int main()
     while( !quit ){
       while( SDL_PollEvent(&event) ){
         
-        //pthread_t ambulance;
         SDL_BlitSurface(threadville, NULL, screen, NULL);
         SDL_Flip(screen);
+
         switch(event.type){
             case SDL_KEYUP:
                 switch(event.key.keysym.sym){
                   //random car creation
                   case SDLK_F1:
-
-                    
-                    addCar();
-                
-
-                    pthread_t gui;
+                    addCar();              
+                    //////
+                    pthread_t gui; 
                     pthread_create(&gui,NULL,drawCars,NULL);
                     pthread_join(gui,NULL);
-
-
-                    printf("%s\n", "SDL!"); 
-
-
-                    carx+=10;
-                    cary+=10;
-
-                    //drawCars();
+                    //////
+                    printf("%s\n", "SDL!"); //test
                   break;
-                  //Custom car creation
+
                   case SDLK_F2:
-                    printf("%d\n", amountOfCars);
-                  //TODO
+                    printf("%d\n", amountOfCars); //test
                   break;
-                  //Ambulance creation
+
                   case SDLK_F3:
-                    printf("%d\n", cars[0]->color);
-                      //pthread_create(&ambulance,NULL,carCreator,(void*)1);
-                    //pthread_join(ambulance,NULL);
-                    //  pthread_join(gui,NULL);
+                    printf("%d\n", cars[0]->color); //test
                   break;
+
                   //Quits simulation
                   case SDLK_ESCAPE:
                   quit = 1;
@@ -179,7 +162,6 @@ int main()
 
     //Quit SDL
     SDL_Quit();
-
 
     // ENDS GUI TESTING
     finish();

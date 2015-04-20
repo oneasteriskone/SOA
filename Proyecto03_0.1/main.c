@@ -62,8 +62,20 @@ int draw(SDL_Surface* Surf_Dest, SDL_Surface* Surf_Src, int X, int Y) {
 
 void drawCars() {
 
-	SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format,0,0,0));
-	draw(screen, SDL_LoadBMP("blueCarLeft.bmp"), carx, cary);
+	while(1){
+		int i = 0;
+		SDL_FillRect(screen, NULL, SDL_MapRGB(screen->format,0,0,0));
+		draw(screen, SDL_LoadBMP("blueCarLeft.bmp"), carx, cary);	
+
+		carx+=1;
+		cary+=1;
+
+		printf("%s", "Moving cars!");
+
+	}
+
+	
+
 
 	//while(1){
 		// int i = 0;
@@ -122,7 +134,7 @@ int main(){
     SDL_EnableUNICODE(1);
 
     //Load image
-    threadville = SDL_LoadBMP("background_converted.bmp");
+    //threadville = SDL_LoadBMP("background_converted.bmp");
 
     //Apply image to screen
     SDL_BlitSurface(threadville, NULL, screen, NULL);
@@ -151,7 +163,7 @@ int main(){
 							carx+=10;
 							cary+=10;
 
-							drawCars();
+							//drawCars();
 						break;
 						//Custom car creation
 						case SDLK_F2:

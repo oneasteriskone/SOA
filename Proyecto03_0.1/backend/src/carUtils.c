@@ -36,15 +36,44 @@ struct vehicleInfo* createCar(unsigned short top, unsigned short color)
     else
         car->color = color;
     car->type = 1;
+    car->currentx = 0;
+    car->currenty = 0;
     car->travels = fillRoute(&(car->route), top);
     return car;
 }
 
 void printVehicle(struct vehicleInfo* vehicle)
 {
+    printf("Type=[%d]\n", vehicle->type);
+    printf("Color=[%d]\n", vehicle->color);
+    printf("Travels=[%d]\n", vehicle->travels);
+    printf("CurrentX=[%d]\n", vehicle->currentx);
+    printf("CurrentY=[%d]\n", vehicle->currenty);
     printf("Type=[%d], Color=[%d], Travels=[%d]\n", vehicle->type, vehicle->color, vehicle->travels);
     int i;
     for(i = 0; i < vehicle->travels ; i++)
-        printf("\tRoute=[%d,%d]\n", i, vehicle->route[i]);
+       printf("\tRoute=[%d,%d]\n", i, vehicle->route[i]);
     printf("\n");
 }
+
+
+//TESTING
+
+void *carCreator(void* isAmbulance) {    
+    printf("%s\n", "Creating car!");
+    //pthread_t carCreatorAuxThread;
+    //pthread_create(&carCreatorAuxThread, NULL, carCreatorAux,isAmbulance);   
+
+    //Include the create car and the addCarToList in a single method.
+
+}
+        
+
+void addCarToCarList(struct vehicleInfo* car, struct vehicleInfo* carList, int amountOfCars){
+    printf("Amount %d\n", amountOfCars);
+    printVehicle(car);
+
+    carList[amountOfCars] = *car;    
+}
+
+///////

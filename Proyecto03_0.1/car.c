@@ -41,6 +41,7 @@ void *carCreatorAux(void *param) {
 }
 
 void *carCreator(void* isAmbulance) {
+    printf("%s\n", "Creating car!");
     pthread_t carCreatorAuxThread;
     pthread_create(&carCreatorAuxThread, NULL, carCreatorAux,isAmbulance);        
 }

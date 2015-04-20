@@ -8,11 +8,15 @@
 #define MAX_TRAVELS 10
 #define MIN_TRAVELS 3
 
+#define MAX_CARS 100
+
 struct vehicleInfo
 {
     unsigned short type;
     unsigned short color;
     unsigned short travels;
+    unsigned short currentx;
+    unsigned short currenty;
     unsigned short* route;
 };
 

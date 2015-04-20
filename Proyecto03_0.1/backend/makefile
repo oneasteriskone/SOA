@@ -1,2 +1,2 @@
 all:
-	gcc -o threadville src/threadville.c src/streetsUtils.c src/carUtils.c -lpthread -lSDL -lm -Wall -Wextra 
+	gcc -o threadville  src/streetsUtils.c src/carUtils.c src/threadville.c -lpthread -lSDL -lm  -Wextra #removed -Wall

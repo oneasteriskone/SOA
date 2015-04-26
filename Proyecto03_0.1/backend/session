@@ -1,0 +1,33 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="1">
+            <File firstVisibleLine="347" xOffset="0" scrollWidth="1" startPos="11280" endPos="11280" selMode="0" lang="TeX" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Ingenieria de Software\Caso de estudio\z.tex" backupFilePath="" originalFileLastModifTimestamp="1429983946" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="355" endPos="355" selMode="0" lang="C" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\threadville.c" backupFilePath="" originalFileLastModifTimestamp="1430008008" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="294" endPos="294" selMode="0" lang="C++" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\vehicleUtils.h" backupFilePath="" originalFileLastModifTimestamp="1430008072" />
+            <File firstVisibleLine="6" xOffset="0" scrollWidth="34456" startPos="1855" endPos="1890" selMode="0" lang="C" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\vehicleUtils.c" backupFilePath="" originalFileLastModifTimestamp="1430007876">
+                <Fold line="12" />
+                <Fold line="17" />
+                <Fold line="21" />
+                <Fold line="26" />
+                <Fold line="58" />
+                <Fold line="86" />
+            </File>
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="540" endPos="540" selMode="0" lang="C++" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\streetsUtils.h" backupFilePath="" originalFileLastModifTimestamp="1430007698" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="1786" endPos="1752" selMode="0" lang="C" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\streetsUtils.c" backupFilePath="" originalFileLastModifTimestamp="1430007698">
+                <Fold line="10" />
+                <Fold line="21" />
+                <Fold line="38" />
+                <Fold line="64" />
+                <Fold line="74" />
+                <Fold line="88" />
+                <Fold line="101" />
+                <Fold line="153" />
+                <Fold line="159" />
+            </File>
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="69" endPos="69" selMode="0" lang="C++" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\gui.h" backupFilePath="" originalFileLastModifTimestamp="1430007698" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="61" endPos="61" selMode="0" lang="C" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\gui.c" backupFilePath="" originalFileLastModifTimestamp="1430007698" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="34456" startPos="541" endPos="541" selMode="0" lang="C++" encoding="-1" filename="C:\Users\lchavarr\ldcl289\Dropbox\TEC\Sistemas Operativos Avanzados\Asignaciones\Proyecto03\src\threadvilleDefinitions.h" backupFilePath="" originalFileLastModifTimestamp="1430007970" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>

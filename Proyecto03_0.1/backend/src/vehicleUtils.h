@@ -3,8 +3,8 @@
 
 #include "threadvilleDefinitions.h"
 
-struct VehicleInfo* createCar(unsigned short top, unsigned short color);
-void runVehicleThread(struct ThreadAttributes* attributes);
+struct VehicleInfo* createVehicle(unsigned short top, enum VehicleType type);
+void* runVehicleThread(void* attributes);
 
 //debug helpers
 void printVehicle(struct VehicleInfo* vehicle);

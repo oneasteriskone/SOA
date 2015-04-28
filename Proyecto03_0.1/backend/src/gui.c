@@ -5,5 +5,5 @@
 
 void moveVehicle(struct StreetSpaceInfo* space, struct VehicleInfo* vehicle)
 {
-    printf("Moving vehicle to %d with resistance=[%d]\n", vehicle->currentSpace, space->resistance);
+    printf("Moving vehicle=[%d] to %d\n", vehicle->id, vehicle->currentSpace);
 }

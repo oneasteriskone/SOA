@@ -12,15 +12,36 @@
 #define MAX_LENGTH_DESTINY_LINE 50
 
 
+enum VehicleType
+{
+    RED,
+    BLUE,
+    GREEN,
+    BLACK,
+    WHITE,
+    YELLOW,
+    AMBULANCE,
+    BUS_ORANGE,
+    BUS_PINK,
+    BUS_BLUELIGHT,
+    BUS_WHITE,
+    BUS_BLACK,
+    BUS_GRAY,
+    BUS_RED,
+    BUS_GREEN,
+    BUS_BLUE,
+    UNDEF
+};
 
 struct VehicleInfo
 {
-    unsigned short type;
-    unsigned short color;
+    enum VehicleType type;
     unsigned short travels;
     unsigned short* route;
     short currentSpace;
-    int sleepTime;
+    int speed;
+    int stopTime;
+    int id;
 };
 
 
@@ -38,6 +59,7 @@ struct StreetSpaceInfo
     unsigned short busStop;
     unsigned short underMaintenance;
     unsigned short resistance;
+    unsigned short locked;
 };
 
 struct ThreadAttributes
@@ -45,6 +67,7 @@ struct ThreadAttributes
     struct StreetSpaceInfo* graph;
     unsigned short graphLength;
     struct VehicleInfo* vehicle;
+    int id;
 };
 
 #endif

@@ -7,6 +7,14 @@
 #include <limits.h>
 #include <unistd.h>
 
+unsigned short testAndSet(unsigned short* lockPtr)
+{
+    unsigned short oldValue;
+    oldValue = *lockPtr;
+    *lockPtr = 1;
+    return oldValue;
+}
+
 void loadDestiny(struct StreetSpaceInfo* graph, short* ids, const unsigned short spaceLength)
 {
     FILE* handler = fopen(DESTINY_FILE, "r");
@@ -80,7 +88,12 @@ struct StreetSpaceInfo* loadStreetInfo(unsigned short* spaceLength)
     struct StreetSpaceInfo* graph = (struct StreetSpaceInfo*) calloc(*spaceLength, sizeof(struct StreetSpaceInfo));
     loadDestiny(graph, ids, *spaceLength);
     loadResistance(graph, ids, spaceLength);
-    //printStreets(graph, *spaceLength);
+    int i;
+    for(i = 0 ; i < *spaceLength ; i++)
+    {
+        graph[i].locked = 0;
+        graph[i].vehicle = 0;
+    }
     return graph;
 }
 
@@ -106,7 +119,7 @@ short* findShortestRoute(struct StreetSpaceInfo* graph, unsigned short graphLeng
     distances[source] = 0;
     unsigned short selected[MAX_SPACES] = {0};
     int parent[MAX_SPACES] = {-1};
-    printf("From=[%d] to=[%d]\n", source, destiny);
+    //printf("From=[%d] to=[%d]\n", source, destiny);
     while(selected[destiny] == 0)
     {
         int minimum = minDistance(distances, selected);
@@ -134,18 +147,35 @@ short* findShortestRoute(struct StreetSpaceInfo* graph, unsigned short graphLeng
         current = parent[current];
     }
     short* path = (short*) calloc(count+1, sizeof(short));
-    for(i = 0 ; i < count ; i++)
-        path[i] = inversedPath[count - 1 - i];
-    path[i] = -1;
-    printRoute(path);
+    path[0] = count;
+    for(i = 1 ; i <= count ; i++)
+        path[i] = inversedPath[count - i];
+        //printf("count=[%d] i=[%d] item=[%d]\n", count, i, count - i);
+    //printRoute(path);
+    free(inversedPath);
     return path;
 }
 
-void getSpace(struct StreetSpaceInfo* space, struct VehicleInfo* vehicle)
+int getSpace(struct StreetSpaceInfo* space, struct VehicleInfo* vehicle)
 {
+    if(0 == space)
+        err(1, ":(\n");
+    int ok = 1;
+    while(testAndSet(&(space->locked)));
+    if(0 == space->vehicle)
+        space->vehicle = vehicle;
+    else
+        ok = 0;
+    space->locked = 0;
+    return ok;
 }
-void releaseSpace(struct StreetSpaceInfo* space, struct VehicleInfo* vehicle)
+void releaseSpace(struct StreetSpaceInfo* space)
 {
+    if(0 == space)
+        err(1, ":(\n");
+    while(testAndSet(&(space->locked)));
+    space->vehicle = 0;
+    space->locked = 0;
 }
 
 
@@ -157,8 +187,8 @@ void printStreets(struct StreetSpaceInfo* graph, int graphLength)
 }
 void printRoute(short* route)
 {
-    int i = 0;
-    while(route[i] != -1)
-        printf("%d => ", route[i++]);
+    int i;
+    for(i = 1 ; i < route[0] ; i++)
+        printf("%d => ", route[i]);
     printf("\n");
 }
